@@ -38,4 +38,9 @@ public class UserServiceImpl implements UserService {
         return userRepository.findUserByUserName(userName);
     }
 
+    @Override
+    public Boolean existUserName(String userName) {
+        return userRepository.countByUserName(userName) > 0;
+    }
+
 }

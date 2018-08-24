@@ -12,4 +12,5 @@ public interface UserService {
 
     User getUserByUserName(String userName);
 
+    Boolean existUserName(String userName);
 }

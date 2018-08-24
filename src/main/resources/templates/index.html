@@ -294,9 +294,9 @@
                         <li class="divider"></li>
 
                         <li>
-                            <a href="#">
+                            <a th:href="@{logOut}">
                                 <i class="icon-off"></i>
-                                Logout
+                                退出
                             </a>
                         </li>
                     </ul>
@@ -781,6 +781,12 @@
             // 切换菜单对应的界面
             var url = $(this).attr("data-url");
             $("#wrapMainContent").load(url,{});
+        });
+
+        $(".logOutClick").on('click',function(){
+            $.post('logOut',{},function(data){
+
+            });
         });
     });
 </script>

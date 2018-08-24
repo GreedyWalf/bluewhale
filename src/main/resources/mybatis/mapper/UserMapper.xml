@@ -11,6 +11,7 @@
         <id column="user_id" property="userId" jdbcType="VARCHAR"/>
         <result column="user_name" property="userName" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
         <result column="create_by" property="createBy" jdbcType="VARCHAR"/>
         <result column="create_time" property="createTime" jdbcType="DATE"/>
         <result column="last_modify_by" property="lastModifyBy" jdbcType="VARCHAR"/>
@@ -18,7 +19,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        user_id, user_name, password, create_by, create_time, last_modify_by, last_modify_time
+        user_id, user_name, password, email, create_by, create_time, last_modify_by, last_modify_time
     </sql>
 
 
@@ -26,7 +27,8 @@
         INSERT INTO t_bw_user(
         <include refid="Base_Column_List"/>
         )
-        VALUES(#{userId}, #{userName}, #{password}, #{createBy}, #{createTime}, #{lastModifyBy}, #{lastModifyTime})
+        VALUES(#{userId}, #{userName}, #{password},#{email}, #{createBy}, #{createTime}, #{lastModifyBy},
+        #{lastModifyTime})
     </insert>
 
     <update id="delete" parameterType="String">
@@ -34,7 +36,7 @@
         WHERE user_id = #{userId}
     </update>
 
-    <select id="getCourseByCourseId" parameterType="String" resultMap="BaseResultMap">
+    <select id="getUserByUserId" parameterType="String" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>
         FROM t_bw_user WHERE user_id=#{userId}

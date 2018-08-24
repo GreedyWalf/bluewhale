@@ -6,6 +6,7 @@ import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
 import org.apache.shiro.util.SimpleByteSource;
+import sun.security.provider.MD5;
 
 import java.io.UnsupportedEncodingException;
 
@@ -16,6 +17,8 @@ public class TestSalt {
         String password = "admin";
         String md5Pwd = DigestUtils.md5Hex(password);
         String salt = "abc";
+
+        System.out.println( DigestUtils.md5Hex("123"));
 
         //加密次数
         int hashIterations = 2;

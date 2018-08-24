@@ -42,6 +42,7 @@ public class CustomerRealm extends AuthorizingRealm {
             return null;
         }
 
+        //自定义salt
         ByteSource salt = ByteSource.Util.bytes("abc");
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(userInfo, userInfo.getPassword(),
                 salt, this.getName());

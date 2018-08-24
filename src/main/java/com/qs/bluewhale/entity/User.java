@@ -21,6 +21,9 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "email")
+    private String email;
+
     @Column(name = "create_by")
     private String createBy;
 
@@ -32,6 +35,14 @@ public class User implements Serializable {
 
     @Column(name = "last_modify_time")
     private Date lastModifyTime;
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 
     public String getUserId() {
         return userId;

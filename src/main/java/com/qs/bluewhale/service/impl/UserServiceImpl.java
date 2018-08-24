@@ -43,4 +43,9 @@ public class UserServiceImpl implements UserService {
         return userRepository.countByUserName(userName) > 0;
     }
 
+    @Override
+    public void updateUser(User user) {
+        userMapper.updateUser(user);
+    }
+
 }

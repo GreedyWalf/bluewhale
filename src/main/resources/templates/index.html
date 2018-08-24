@@ -9,6 +9,10 @@
     <link rel="stylesheet" th:href="@{/assets/css/ace.min.css}"/>
     <link rel="stylesheet" th:href="@{/assets/css/ace-rtl.min.css}"/>
     <link rel="stylesheet" th:href="@{/assets/css/ace-skins.min.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/jquery-ui-1.10.3.custom.min.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/jquery.gritter.css}" />
+    <link rel="stylesheet" th:href="@{assets/css/select2.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap-editable.css}" />
 
     <!-- 相册引入的css -->
     <link rel="stylesheet" th:href="@{/assets/css/colorbox.css}"/>
@@ -24,13 +28,21 @@
     <script th:src="@{/assets/js/ace-extra.min.js}"></script>
     <script th:src="@{/assets/js/ace-elements.min.js}"></script>
     <script th:src="@{/assets/js/ace.min.js}"></script>
-
-    <!-- 相册引入js -->
     <script th:src="@{/assets/js/jquery.colorbox-min.js}"></script>
-    <!-- 日历引入的js -->
     <script th:src="@{/assets/js/jquery.ui.touch-punch.min.js}"></script>
     <script th:src="@{/assets/js/fullcalendar.min.js}"></script>
     <script th:src="@{/assets/js/bootbox.min.js}"></script>
+    <script th:src="@{/assets/js/jquery.gritter.min.js}"></script>
+    <script th:src="@{/assets/js/bootbox.min.js}"></script>
+    <script th:src="@{/assets/js/jquery.easy-pie-chart.min.js}"></script>
+    <script th:src="@{/assets/js/jquery.hotkeys.min.js}"></script>
+    <script th:src="@{/assets/js/bootstrap-wysiwyg.min.js}"></script>
+    <script th:src="@{/assets/js/select2.min.js}"></script>
+    <script th:src="@{/assets/js/date-time/bootstrap-datepicker.min.js}"></script>
+    <script th:src="@{/assets/js/fuelux/fuelux.spinner.min.js}"></script>
+    <script th:src="@{/assets/js/x-editable/bootstrap-editable.min.js}"></script>
+    <script th:src="@{/assets/js/x-editable/ace-editable.min.js}"></script>
+    <script th:src="@{/assets/js/jquery.maskedinput.min.js}"></script>
 </head>
 
 <body>
@@ -49,7 +61,7 @@
             <a href="#" class="navbar-brand">
                 <small>
                     <i class="icon-leaf"></i>
-                    Ace Admin
+                    Blue Whale
                 </small>
             </a><!-- /.brand -->
         </div><!-- /.navbar-header -->
@@ -267,11 +279,11 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" th:src="@{/assets/avatars/user.jpg}" alt="Jason's Photo"/>
+                        <img class="nav-user-photo" th:src="${user.userHeadImg}" th:alt="${user.userName}"/>
                         <span class="user-info">
-									<small>Welcome,</small>
-									Jason
-								</span>
+                                <small>欢迎,</small>
+                                <span th:text="${user.userName}"></span>
+                        </span>
 
                         <i class="icon-caret-down"></i>
                     </a>
@@ -280,14 +292,14 @@
                         <li>
                             <a href="#">
                                 <i class="icon-cog"></i>
-                                Settings
+                                设置
                             </a>
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a class="menu-click" data-url="user/userInfo" href="#">
                                 <i class="icon-user"></i>
-                                Profile
+                                个人信息
                             </a>
                         </li>
 
@@ -732,7 +744,7 @@
                             <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
                         </select>
                     </div>
-                    <span>&nbsp; Choose Skin</span>
+                    <span>&nbsp; 选择皮肤</span>
                 </div>
 
                 <div>
@@ -777,7 +789,6 @@
     $(function () {
         // 菜单点击事件
         $(".menu-click").on("click",function() {
-            debugger
             // 切换菜单对应的界面
             var url = $(this).attr("data-url");
             $("#wrapMainContent").load(url,{});

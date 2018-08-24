@@ -24,6 +24,22 @@ public class User implements Serializable {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "phone",length = 11)
+    private String phone;
+
+    @Column(name = "signature")
+    private String signature;
+
+    @Column(name = "position")
+    private String position;
+
+    @Column(name = "sex",length = 1)
+    private String sex;
+
+    @Lob
+    @Column(name = "user_head_img")
+    private String userHeadImg;
+
     @Column(name = "create_by")
     private String createBy;
 
@@ -35,6 +51,47 @@ public class User implements Serializable {
 
     @Column(name = "last_modify_time")
     private Date lastModifyTime;
+
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getUserHeadImg() {
+        return userHeadImg;
+    }
+
+    public void setUserHeadImg(String userHeadImg) {
+        this.userHeadImg = userHeadImg;
+    }
 
     public void setEmail(String email) {
         this.email = email;

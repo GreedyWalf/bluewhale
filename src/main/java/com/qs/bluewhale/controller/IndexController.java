@@ -1,5 +1,6 @@
 package com.qs.bluewhale.controller;
 
+import com.qs.bluewhale.context.ExecutionContext;
 import com.qs.bluewhale.entity.User;
 import com.qs.bluewhale.service.UserService;
 import com.qs.bluewhale.utils.JsonResult;
@@ -17,6 +18,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,7 +54,10 @@ public class IndexController {
     }
 
     @RequestMapping(value = {"/", "/index"})
-    public String index() {
+    public String index(Model model) {
+        String userId = ExecutionContext.getUserId();
+        User user = userService.getUserByUserId(userId);
+        model.addAttribute("user", user);
         return "index";
     }
 
@@ -94,6 +99,13 @@ public class IndexController {
             jsonResult = new JsonResult(JsonStatus.ERROR, "登录异常", resultMap);
             return jsonResult;
         }
+
+        //获取登录session中的user，将userId、userName存储在本地线程变量中
+        User sessionUser = (User) subject.getPrincipal();
+        Map<String, String> contextMap = new HashMap<>();
+        contextMap.put(ExecutionContext.USER_ID, sessionUser.getUserId());
+        contextMap.put(ExecutionContext.USER_NAME, sessionUser.getUserName());
+        ExecutionContext.setContextMap(contextMap);
 
         resultMap.put("url", "index");
         jsonResult.setResultMap(resultMap);

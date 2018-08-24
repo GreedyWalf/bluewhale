@@ -12,6 +12,11 @@
         <result column="user_name" property="userName" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
         <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="signature" property="signature" jdbcType="VARCHAR"/>
+        <result column="position" property="position" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="VARCHAR"/>
+        <result column="user_head_img" property="userHeadImg" jdbcType="BLOB"/>
         <result column="create_by" property="createBy" jdbcType="VARCHAR"/>
         <result column="create_time" property="createTime" jdbcType="DATE"/>
         <result column="last_modify_by" property="lastModifyBy" jdbcType="VARCHAR"/>
@@ -19,7 +24,8 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        user_id, user_name, password, email, create_by, create_time, last_modify_by, last_modify_time
+        user_id, user_name, password, email,
+        create_by, create_time, last_modify_by, last_modify_time
     </sql>
 
 
@@ -27,8 +33,9 @@
         INSERT INTO t_bw_user(
         <include refid="Base_Column_List"/>
         )
-        VALUES(#{userId}, #{userName}, #{password},#{email}, #{createBy}, #{createTime}, #{lastModifyBy},
-        #{lastModifyTime})
+        VALUES(
+          #{userId}, #{userName},#{password},#{email},#{createBy}, #{createTime},#{lastModifyBy}, #{lastModifyTime}
+        )
     </insert>
 
     <update id="delete" parameterType="String">
@@ -41,4 +48,24 @@
         <include refid="Base_Column_List"/>
         FROM t_bw_user WHERE user_id=#{userId}
     </select>
+
+
+    <update id="updateUser" parameterType="User">
+        UPDATE t_bw_user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="userName!=null">user_name=#{userName},</if>
+            <if test="password!=null">password=#{password},</if>
+            <if test="email!=null">email=#{email},</if>
+            <if test="phone!=null">phone=#{phone},</if>
+            <if test="signature!=null">signature=#{signature},</if>
+            <if test="position!=null">position=#{position},</if>
+            <if test="sex!=null">sex=#{sex},</if>
+            <if test="userHeadImg!=null">user_head_img=#{userHeadImg},</if>
+            <if test="createBy!=null">create_by=#{createBy},</if>
+            <if test="createTime!=null">create_time=#{createTime},</if>
+            <if test="lastModifyBy!=null">last_modify_by=#{lastModifyBy},</if>
+            <if test="lastModifyTime!=null">last_modify_time=#{lastModifyTime},</if>
+        </trim>
+        WHERE user_id=#{userId}
+    </update>
 </mapper>

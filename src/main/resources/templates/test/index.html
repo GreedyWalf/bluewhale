@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>测试pjax</title>
+    <script th:src="@{/assets/js/jquery.js}"></script>
+    <script th:src="@{/assets/js/jquery.pjax.js}"></script>
+</head>
+<body>
+<input type="hidden" th:value="${#httpServletRequest.getParameter('preUrl')}" id="preUrl"/>
+<ul>
+    <li><a th:href="@{/test/test2}">test2</a></li>
+    <li><a th:href="@{/test/test3}">test3</a></li>
+</ul>
+<div id="wrapDiv" style="background-color: yellow; width: 400px;height: 400px;">
+    初始化的时候这里是test
+</div>
+</body>
+
+
+<script>
+    $(function () {
+        var preUrl = $("#preUrl").val();
+        console.log(preUrl);
+
+        console.log(window.location.href);
+        $(document).pjax('a', '#wrapDiv');
+
+        //直接属性页面，重新使用pajax请求一次
+//        if (preUrl) {
+//            $.pjax({
+//                url: preUrl,
+//                container: "#wrapDiv"
+//            });
+//        }
+
+        //不是当前页，针对转发过来的请求，使用pjax再发送一次请求，解决刷新页面将pjax请求页面独立出去问题
+        if (window.location.href.indexOf("/test/index") < 0) {
+            $.pjax({
+                url: '',
+                container: "#wrapDiv"
+            });
+        }
+    });
+</script>
+</html>

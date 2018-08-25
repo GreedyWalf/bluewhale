@@ -1,6 +1,6 @@
-package com.qs.bluewhale.config;
+package com.qs.bluewhale.base.config;
 
-import com.qs.bluewhale.filter.LoginFilter;
+import com.qs.bluewhale.base.filter.LoginFilter;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.session.mgt.SessionManager;

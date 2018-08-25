@@ -1,6 +1,7 @@
 package com.qs.bluewhale.controller;
 
-import com.qs.bluewhale.context.ExecutionContext;
+import com.qs.bluewhale.base.BaseController;
+import com.qs.bluewhale.base.context.ExecutionContext;
 import com.qs.bluewhale.entity.User;
 import com.qs.bluewhale.service.UserService;
 import com.qs.bluewhale.utils.JsonResult;
@@ -32,7 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-public class IndexController {
+public class IndexController extends BaseController {
 
     @Value("${shiro.password.salt}")
     private String salt;
@@ -173,39 +174,25 @@ public class IndexController {
     }
 
     @RequestMapping(value = "/gallery")
-    public String gallery() {
+    public String gallery(HttpServletRequest request) {
+        if (BooleanUtils.isFalse(checkIsPjaxRequest(request))) {
+            return "forward:/index";
+        }
+
         return "gallery";
     }
 
     @RequestMapping(value = "/calendar")
-    public String calendar() {
+    public String calendar(HttpServletRequest request) {
+        if (BooleanUtils.isFalse(checkIsPjaxRequest(request))) {
+            return "forward:/index";
+        }
+
         return "calendar";
     }
 
     @RequestMapping(value = "/login")
     public String login() {
         return "login";
-    }
-
-
-    @RequestMapping(value = "/getUser")
-    @ResponseBody
-    public User getUser(String userId) {
-        return userService.getUserByUserId(userId);
-    }
-
-    @RequestMapping(value = "/saveUser")
-    @ResponseBody
-    public String saveUser(User user) {
-        userService.saveEntity(user);
-        return "添加用户成功！";
-    }
-
-
-    @RequestMapping(value = "/deleteUser")
-    @ResponseBody
-    private String deleteUser(String userId) {
-        userService.delete(userId);
-        return "删除用户成功！";
     }
 }

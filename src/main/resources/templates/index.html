@@ -9,10 +9,10 @@
     <link rel="stylesheet" th:href="@{/assets/css/ace.min.css}"/>
     <link rel="stylesheet" th:href="@{/assets/css/ace-rtl.min.css}"/>
     <link rel="stylesheet" th:href="@{/assets/css/ace-skins.min.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/jquery-ui-1.10.3.custom.min.css}" />
-    <link rel="stylesheet" th:href="@{/assets/css/jquery.gritter.css}" />
-    <link rel="stylesheet" th:href="@{assets/css/select2.css}" />
-    <link rel="stylesheet" th:href="@{/assets/css/bootstrap-editable.css}" />
+    <link rel="stylesheet" th:href="@{/assets/css/jquery-ui-1.10.3.custom.min.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/jquery.gritter.css}"/>
+    <link rel="stylesheet" th:href="@{assets/css/select2.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap-editable.css}"/>
 
     <!-- 相册引入的css -->
     <link rel="stylesheet" th:href="@{/assets/css/colorbox.css}"/>
@@ -43,6 +43,7 @@
     <script th:src="@{/assets/js/x-editable/bootstrap-editable.min.js}"></script>
     <script th:src="@{/assets/js/x-editable/ace-editable.min.js}"></script>
     <script th:src="@{/assets/js/jquery.maskedinput.min.js}"></script>
+    <script th:src="@{/assets/js/jquery.pjax.js}"></script>
 </head>
 
 <body>
@@ -547,7 +548,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="menu-click" data-url="calendar">
+                    <a data-pjax th:href="@{/calendar}" data-url="calendar">
                         <i class="icon-calendar"></i>
                         <span class="menu-text">
 									日历
@@ -560,7 +561,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="menu-click" data-url="gallery">
+                    <a data-pjax th:href="@{/gallery}">
                         <i class="icon-picture"></i>
                         <span class="menu-text"> 相册 </span>
                     </a>
@@ -787,18 +788,16 @@
 
 <script>
     $(function () {
-        // 菜单点击事件
-        $(".menu-click").on("click",function() {
-            // 切换菜单对应的界面
-            var url = $(this).attr("data-url");
-            $("#wrapMainContent").load(url,{});
-        });
-
-        $(".logOutClick").on('click',function(){
-            $.post('logOut',{},function(data){
-
+        //定义哪些a标签使用pjax方式访问，将a链接中html放在元素wrapMainContent中
+        $(document).pjax('[data-pjax] a, a[data-pjax]', '#wrapMainContent', {'timeout': 1200});
+        //针对刷新后的链接，重新使用pjax方式嵌入到指定元素下
+        var url = window.location.href;
+        if (url.indexOf("/index") < 0) {
+            $.pjax({
+                url: '',
+                container: "#wrapMainContent"
             });
-        });
+        }
     });
 </script>
 </html>

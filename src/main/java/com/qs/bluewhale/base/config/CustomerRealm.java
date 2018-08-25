@@ -1,4 +1,4 @@
-package com.qs.bluewhale.config;
+package com.qs.bluewhale.base.config;
 
 import com.qs.bluewhale.entity.User;
 import com.qs.bluewhale.service.UserService;

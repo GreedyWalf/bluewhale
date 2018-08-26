@@ -11,7 +11,7 @@
     <link rel="stylesheet" th:href="@{/assets/css/ace-skins.min.css}"/>
     <link rel="stylesheet" th:href="@{/assets/css/jquery-ui-1.10.3.custom.min.css}"/>
     <link rel="stylesheet" th:href="@{/assets/css/jquery.gritter.css}"/>
-    <link rel="stylesheet" th:href="@{assets/css/select2.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/select2.css}"/>
     <link rel="stylesheet" th:href="@{/assets/css/bootstrap-editable.css}"/>
 
     <!-- 相册引入的css -->
@@ -299,7 +299,7 @@
                         </li>
 
                         <li>
-                            <a  class="menu-click" data-url="user/userInfo" href="#">
+                            <a data-pjax th:href="@{/user/userInfo}">
                                 <i class="icon-user"></i>
                                 个人信息
                             </a>
@@ -308,7 +308,7 @@
                         <li class="divider"></li>
 
                         <li>
-                            <a th:href="@{logOut}">
+                            <a th:href="@{/logOut}">
                                 <i class="icon-off"></i>
                                 退出
                             </a>
@@ -375,7 +375,7 @@
 
             <ul class="nav nav-list" th:each="menu,status:${menuList}">
                 <!-- 有子菜单，存在二级目录 -->
-                <li th:if="${menu.childrenMenus}">
+                <li th:if="${menu.childrenMenus}" th:menu-namePath="${menu.menuNamePath}">
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-edit" th:if="${menu.menuName=='记账'}"></i>
                         <i class="icon-edit" th:if="${menu.menuName!='记账'}"></i>
@@ -384,8 +384,9 @@
                         <b class="arrow icon-angle-down"></b>
                     </a>
                     <ul class="submenu">
-                        <li th:if="${menu.childrenMenus}" th:each="childMenu,status:${menu.childrenMenus}">
-                            <a data-pjax th:href="${childMenu.url}">
+                        <li th:if="${menu.childrenMenus}" th:each="childMenu,status:${menu.childrenMenus}"
+                            th:menu-namePath="${childMenu.menuNamePath}">
+                            <a data-pjax th:href="@{${childMenu.url}}">
                                 <i class="icon-double-angle-right"></i>
                                 <span th:text="${childMenu.menuName}">二级菜单</span>
                             </a>
@@ -393,8 +394,8 @@
                     </ul>
                 </li>
                 <!-- 没有子菜单，只有一级目录 -->
-                <li th:if="not ${menu.childrenMenus}">
-                    <a data-pjax th:href="${menu.url}" th:if="${menu.menuName=='日历'}">
+                <li th:if="not ${menu.childrenMenus}" th:menu-namePath="${menu.menuNamePath}">
+                    <a data-pjax th:href="@{${menu.url}}" th:if="${menu.menuName=='日历'}">
                         <i class="icon-calendar"></i>
                         <span class="menu-text">
 									<span th:text="${menu.menuName}">日历</span>
@@ -404,11 +405,11 @@
                                 </span>
                         </span>
                     </a>
-                    <a data-pjax th:href="${menu.url}" th:if="${menu.menuName=='相册'}">
+                    <a data-pjax th:href="@{${menu.url}}" th:if="${menu.menuName=='相册'}">
                         <i class="icon-picture"></i>
                         <span class="menu-text" th:text="${menu.menuName}">相册</span>
                     </a>
-                    <a data-pjax th:href="${menu.url}" th:if="${menu.menuName!='相册' && menu.menuName!='日历'}">
+                    <a data-pjax th:href="@{${menu.url}}" th:if="${menu.menuName!='相册' && menu.menuName!='日历'}">
                         <i class="icon-tag"></i>
                         <span class="menu-text" th:text="${menu.menuName}">其他的只有一级目录</span>
                     </a>
@@ -440,24 +441,19 @@
                 </script>
 
                 <ul class="breadcrumb">
-                    <li>
+                    <li class="home-bread">
                         <i class="icon-home home-icon"></i>
-                        <a href="#">Home</a>
+                        <a th:href="@{/index}">首页</a>
                     </li>
-
-                    <li>
-                        <a href="#">Other Pages</a>
-                    </li>
-                    <li class="active">Blank Page</li>
                 </ul><!-- .breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
                     <form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input"
-                                           id="nav-search-input" autocomplete="off"/>
-									<i class="icon-search nav-search-icon"></i>
-								</span>
+                        <span class="input-icon">
+                            <input type="text" placeholder="Search ..." class="nav-search-input"
+                                   id="nav-search-input" autocomplete="off"/>
+                            <i class="icon-search nav-search-icon"></i>
+                        </span>
                     </form>
                 </div><!-- #nav-search -->
             </div>
@@ -533,22 +529,67 @@
 <!-- js中使用thymeleaf取request域中的值 -->
 <script th:inline="javascript">
     /*<![CDATA[*/
-    var isDispatcher=/*[[${isDispatcher}]]*/
+    var isDispatcher =/*[[${isDispatcher}]]*/;
+    var contextPath = /*[[${contextPath}]]*/;
     /*]]>*/
 </script>
 
 <script>
     $(function () {
+
+        //展示面包屑导航
+        function showBreadNav(menuNamePath){
+            var $homeBreadLi = $("li.home-bread");
+            var $breadUl = $("ul.breadcrumb");
+            $breadUl.html("");
+            $breadUl.append($homeBreadLi);
+            if (menuNamePath) {
+                var menuNames = menuNamePath.split(".");
+                menuNames.forEach(function (val, index) {
+                    console.log(index + '->' + val);
+                    var $li = $("<li></li>");
+                    $li.text(val);
+                    if (index === menuNames.length - 1) {
+                        $li.addClass("active");
+                    }
+
+                    $breadUl.append($li);
+                });
+            }
+        }
+
+
+        //左边菜单点击事件
+        $('[data-pjax] a, a[data-pjax]').click(function () {
+            $("li").removeClass("active");
+            var $parentLi = $(this).parents("li").eq(0);
+            $parentLi.addClass("active");
+            var menuNamePath = $parentLi.attr("menu-namePath");
+            showBreadNav(menuNamePath);
+        });
+
+        console.log("-->>isDispatcher=" + isDispatcher);
         //定义哪些a标签使用pjax方式访问，将a链接中html放在元素wrapMainContent中
         $(document).pjax('[data-pjax] a, a[data-pjax]', '#wrapMainContent', {'timeout': 1200});
         //针对刷新后的链接，重新使用pjax方式嵌入到指定元素下
         var url = window.location.href;
-        //如果是首页，则不跳转
+        //如果是首页，则不再次使用pjax跳转
         if (isDispatcher) {
             $.pjax({
                 url: '',
                 container: "#wrapMainContent"
             });
+
+            //获取到链接的uri，页面刷新后，选中对应的菜单
+            var uri = url.substring(url.lastIndexOf(contextPath), url.length);
+            var $li = $("a[href='" + uri + "']").parents("li").eq(0);
+            if ($li.parents("ul")) {
+                $li.parents("ul").show();
+            }
+
+            $li.addClass("active");
+            var menuNamePath = $li.attr("menu-namePath");
+            showBreadNav(menuNamePath);
         }
     });
 </script>

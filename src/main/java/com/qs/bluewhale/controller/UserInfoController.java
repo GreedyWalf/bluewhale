@@ -26,6 +26,7 @@ public class UserInfoController extends BaseController {
     @RequestMapping(value = "/userInfo")
     public String userInfo(Model model, HttpServletRequest request) {
         if (BooleanUtils.isFalse(checkIsPjaxRequest(request))) {
+            request.setAttribute("isDispatcher", true);
             return "forward:/index";
         }
 

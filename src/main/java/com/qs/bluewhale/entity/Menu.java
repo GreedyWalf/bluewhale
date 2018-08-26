@@ -50,18 +50,49 @@ public class Menu implements Serializable {
     @Column(name = "last_modify_time")
     private Date lastModifyTime;
 
+    @Column(name = "menu_name_path")
+    private String menuNamePath;
+
+    @Column(name = "menu_id_path")
+    private String menuIdPath;
+
 
     /**
      * 非持久化字段
      */
     private transient List<Menu> childrenMenus;
+    private transient String menuUrlPath;
+
+    public void setMenuUrlPath(String menuUrlPath) {
+        this.menuUrlPath = menuUrlPath;
+    }
+
+    public String getMenuUrlPath() {
+        return menuUrlPath;
+    }
+
+    public List<Menu> getChildrenMenus() {
+        return childrenMenus;
+    }
 
     public void setChildrenMenus(List<Menu> childrenMenus) {
         this.childrenMenus = childrenMenus;
     }
 
-    public List<Menu> getChildrenMenus() {
-        return childrenMenus;
+    public void setMenuNamePath(String menuNamePath) {
+        this.menuNamePath = menuNamePath;
+    }
+
+    public String getMenuNamePath() {
+        return menuNamePath;
+    }
+
+    public void setMenuIdPath(String menuIdPath) {
+        this.menuIdPath = menuIdPath;
+    }
+
+    public String getMenuIdPath() {
+        return menuIdPath;
     }
 
     public String getMenuId() {

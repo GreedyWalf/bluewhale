@@ -50,13 +50,6 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
-		<!-- 去除thymeleaf模版中html格式校验 -->
-		<!--<dependency>-->
-			<!--<groupId>net.sourceforge.nekohtml</groupId>-->
-			<!--<artifactId>nekohtml</artifactId>-->
-			<!--<version>1.9.22</version>-->
-		<!--</dependency>-->
-
 		<!-- springboot支持数据库连接 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -109,6 +102,12 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>5.1.2</version>
 		</dependency>
 
 

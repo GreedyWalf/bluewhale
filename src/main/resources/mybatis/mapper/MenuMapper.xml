@@ -13,6 +13,8 @@
         <result column="menu_name" property="menuName" jdbcType="VARCHAR"/>
         <result column="show_order" property="showOrder" jdbcType="FLOAT"/>
         <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="menu_name_path" property="menuNamePath" jdbcType="VARCHAR"/>
+        <result column="menu_id_path" property="menuIdPath" jdbcType="VARCHAR"/>
         <result column="create_by" property="createBy" jdbcType="VARCHAR"/>
         <result column="create_time" property="createTime" jdbcType="DATE"/>
         <result column="last_modify_by" property="lastModifyBy" jdbcType="VARCHAR"/>
@@ -25,7 +27,7 @@
 
     <sql id="Base_Column_List">
         menu_id, parent_menu_id, menu_name, show_order,
-        url, create_by, create_time, last_modify_by, last_modify_time
+        url, menu_name_path, menu_id_path, create_by, create_time, last_modify_by, last_modify_time
     </sql>
 
     <!-- 根据parentMenuId查询出所有的子菜单 -->
@@ -42,10 +44,17 @@
             </if>
         </where>
         ORDER BY show_order ASC
-        <!--<trim prefix="where" prefixOverrides="and | or">-->
-        <!--<if test="_parameter!=null">-->
-        <!--and parent_menu_id=#{parentMenuId}-->
-        <!--</if>-->
-        <!--</trim>-->
+    </select>
+
+     <!-- mybatis直接返回map集合（key=id，value=menu实体） -->
+    <select id="getMenuIdAndUrlMap" parameterType="String" resultType="Menu" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        from t_bw_menu
+        <where>
+            <if test="_parameter!=null">
+                parent_menu_id=#{parentMenuId}
+            </if>
+        </where>
     </select>
 </mapper>

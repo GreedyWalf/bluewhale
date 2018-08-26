@@ -19,7 +19,8 @@ public class LoginFilter extends AuthorizationFilter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         String url = request.getRequestURL().toString();
         System.out.println("-->>过滤器执行了，请求：" + url);
-
+        String contextPath = WebUtils.getContextPath(request);
+        request.setAttribute("contextPath", contextPath);
         //过滤器中将已经登录的userId、userName存储在线程变量中，方便在实现业务中获取当前登录的userId、userName
         Subject subject = SecurityUtils.getSubject();
         User sessionUser = (User) subject.getPrincipal();

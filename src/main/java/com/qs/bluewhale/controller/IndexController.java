@@ -194,6 +194,7 @@ public class IndexController extends BaseController {
     @RequestMapping(value = "/calendar")
     public String calendar(HttpServletRequest request) {
         if (BooleanUtils.isFalse(checkIsPjaxRequest(request))) {
+            request.setAttribute("isDispatcher", true);
             return "forward:/index";
         }
 

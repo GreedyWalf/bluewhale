@@ -6,6 +6,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 登录用户表
+ */
 @Entity
 @Table(name = "t_bw_user")
 public class User implements Serializable {
@@ -24,7 +27,7 @@ public class User implements Serializable {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "phone",length = 11)
+    @Column(name = "phone", length = 11)
     private String phone;
 
     @Column(name = "signature")
@@ -33,7 +36,7 @@ public class User implements Serializable {
     @Column(name = "position")
     private String position;
 
-    @Column(name = "sex",length = 1)
+    @Column(name = "sex", length = 1)
     private String sex;
 
     @Lob

@@ -2,7 +2,9 @@ package com.qs.bluewhale.controller;
 
 import com.qs.bluewhale.base.BaseController;
 import com.qs.bluewhale.base.context.ExecutionContext;
+import com.qs.bluewhale.entity.Menu;
 import com.qs.bluewhale.entity.User;
+import com.qs.bluewhale.service.MenuService;
 import com.qs.bluewhale.service.UserService;
 import com.qs.bluewhale.utils.JsonResult;
 import com.qs.bluewhale.utils.JsonStatus;
@@ -30,6 +32,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -46,6 +49,8 @@ public class IndexController extends BaseController {
 
     @Resource
     private UserService userService;
+    @Resource
+    private MenuService menuService;
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -55,10 +60,13 @@ public class IndexController extends BaseController {
     }
 
     @RequestMapping(value = {"/", "/index"})
-    public String index(Model model) {
+    public String index(Model model,HttpServletRequest request) {
         String userId = ExecutionContext.getUserId();
         User user = userService.getUserByUserId(userId);
         model.addAttribute("user", user);
+        List<Menu> menuList = menuService.getMenuListByParentMenuId(null);
+        model.addAttribute("menuList", menuList);
+        System.out.println("isDispatcher=" + request.getAttribute("isDispatcher"));
         return "index";
     }
 
@@ -176,6 +184,7 @@ public class IndexController extends BaseController {
     @RequestMapping(value = "/gallery")
     public String gallery(HttpServletRequest request) {
         if (BooleanUtils.isFalse(checkIsPjaxRequest(request))) {
+            request.setAttribute("isDispatcher", true);
             return "forward:/index";
         }
 

@@ -63,6 +63,14 @@
     </select>
 
 
+    <!-- 使用mybatis的PageHelper进行分页 -->
+    <select id="findByPage" resultMap="BaseResultMap" useCache="false">
+        select
+        <include refid="Base_Column_List" />
+        from t_bw_user
+    </select>
+
+
     <update id="updateUser" parameterType="User">
         UPDATE t_bw_user
         <trim prefix="set" suffixOverrides=",">

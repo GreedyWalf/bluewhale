@@ -1,5 +1,6 @@
 package com.qs.bluewhale.controller;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.qs.bluewhale.base.BaseController;
 import com.qs.bluewhale.base.context.ExecutionContext;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -57,8 +60,14 @@ public class UserController extends BaseController {
 
     @RequestMapping(value = "/getUserList")
     @ResponseBody
-    public PageInfo<User> getUserList(int offset, int limit, String keyword) {
-        return userService.getUserList(offset, limit, keyword);
+    public Map<String, Object> getUserList(Page<User> page) {
+        Page<User> userPage = userService.getUserList(page);
+        PageInfo<User> pageInfo = new PageInfo<>(userPage);
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("count", pageInfo.getTotal());
+        dataMap.put("data", pageInfo.getList());
+        dataMap.put("code", 0);
+        return dataMap;
     }
 
     @RequestMapping(value = "/updateUser")

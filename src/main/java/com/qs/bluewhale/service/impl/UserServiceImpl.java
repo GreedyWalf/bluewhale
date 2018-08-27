@@ -1,18 +1,14 @@
 package com.qs.bluewhale.service.impl;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.qs.bluewhale.entity.User;
 import com.qs.bluewhale.service.UserService;
 import com.qs.bluewhale.service.mapper.UserMapper;
 import com.qs.bluewhale.service.repository.UserRepository;
-import org.apache.shiro.crypto.hash.Hash;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Service(value = "userService")
 public class UserServiceImpl implements UserService {
@@ -55,14 +51,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public PageInfo<User> getUserList(int currentNum, int limit, String keyword) {
-        Map<String, Object> conditionMap = new HashMap<>();
-        conditionMap.put("start", currentNum);
-        conditionMap.put("limit", limit);
-        conditionMap.put("keyword", keyword);
-        List<User> userList = userMapper.getUserList(conditionMap);
-        PageHelper.startPage(currentNum, limit);
-        return new PageInfo<>(userList);
+    public Page<User> getUserList(Page page) {
+        PageHelper.startPage(page.getPageNum(), page.getPageSize());
+        return userMapper.findByPage();
     }
-
 }

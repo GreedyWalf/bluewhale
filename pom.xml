@@ -76,6 +76,13 @@
 			<version>1.0.29</version>
 		</dependency>
 
+		<!-- fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.31</version>
+		</dependency>
+
 		<!-- springoot支持jpa -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -90,6 +97,13 @@
 			<version>1.3.0</version>
 		</dependency>
 
+		<!--mybatis分页工具 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<!-- !!注意版本：springBoot2.0用低版本的pageHelper包会报错 -->
+			<version>1.2.3</version>
+		</dependency>
 		<!-- 整合shiro框架 -->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
@@ -109,13 +123,6 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.0</version>
 		</dependency>
-
-		<dependency>
-			<groupId>com.github.pagehelper</groupId>
-			<artifactId>pagehelper</artifactId>
-			<version>5.1.2</version>
-		</dependency>
-
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

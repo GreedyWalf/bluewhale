@@ -1,5 +1,6 @@
 package com.qs.bluewhale.service.mapper;
 
+import com.github.pagehelper.Page;
 import com.qs.bluewhale.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -17,5 +18,7 @@ public interface UserMapper {
 
     List<User> getAllUsers();
 
-    List<User> getUserList(Map<String,Object> conditionMap);
+    List<User> getUserList(int startNum, int pageSize);
+
+    Page<User> findByPage();
 }

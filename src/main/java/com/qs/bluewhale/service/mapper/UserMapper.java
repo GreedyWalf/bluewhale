@@ -3,6 +3,9 @@ package com.qs.bluewhale.service.mapper;
 import com.qs.bluewhale.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+import java.util.Map;
+
 @Mapper
 public interface UserMapper {
 
@@ -10,7 +13,9 @@ public interface UserMapper {
 
     void delete(String userId);
 
-    User findUserByUserId(String userId);
-
     void updateUser(User user);
+
+    List<User> getAllUsers();
+
+    List<User> getUserList(Map<String,Object> conditionMap);
 }

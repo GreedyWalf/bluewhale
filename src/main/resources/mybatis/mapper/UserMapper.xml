@@ -34,7 +34,7 @@
         <include refid="Base_Column_List"/>
         )
         VALUES(
-          #{userId}, #{userName},#{password},#{email},#{createBy}, #{createTime},#{lastModifyBy}, #{lastModifyTime}
+        #{userId}, #{userName},#{password},#{email},#{createBy}, #{createTime},#{lastModifyBy}, #{lastModifyTime}
         )
     </insert>
 
@@ -43,10 +43,23 @@
         WHERE user_id = #{userId}
     </update>
 
-    <select id="getUserByUserId" parameterType="String" resultMap="BaseResultMap">
+    <select id="getAllUsers" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM t_bw_user WHERE user_id=#{userId}
+        FROM t_bw_user
+    </select>
+
+    <select id="getUserList" parameterType="Map" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM t_bw_user
+        <where>
+            <if test="keyword!=null">
+                user_name like '%' + #{keyword} + "%"
+            </if>
+        </where>
+        LIMIT #{limit}
+        OFFSET #{start}
     </select>
 
 

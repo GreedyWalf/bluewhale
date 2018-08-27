@@ -1,6 +1,9 @@
 package com.qs.bluewhale.service;
 
+import com.github.pagehelper.PageInfo;
 import com.qs.bluewhale.entity.User;
+
+import java.util.List;
 
 public interface UserService {
 
@@ -15,4 +18,7 @@ public interface UserService {
     Boolean existUserName(String userName);
 
     void updateUser(User user);
+
+    PageInfo<User> getUserList(int currentNum, int limit, String keyword);
+
 }

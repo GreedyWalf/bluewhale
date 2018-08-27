@@ -13,11 +13,9 @@
     <link rel="stylesheet" th:href="@{/assets/css/jquery.gritter.css}"/>
     <link rel="stylesheet" th:href="@{/assets/css/select2.css}"/>
     <link rel="stylesheet" th:href="@{/assets/css/bootstrap-editable.css}"/>
-
-    <!-- 相册引入的css -->
     <link rel="stylesheet" th:href="@{/assets/css/colorbox.css}"/>
-    <!-- 日历引入的css -->
     <link rel="stylesheet" th:href="@{/assets/css/fullcalendar.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/layui/css/layui.css}"/>
 
     <script th:src="@{/assets/js/jquery-2.0.3.min.js}"></script>
     <script th:src="@{/assets/js/jquery.slimscroll.min.js}"></script>
@@ -44,7 +42,7 @@
     <script th:src="@{/assets/js/x-editable/ace-editable.min.js}"></script>
     <script th:src="@{/assets/js/jquery.maskedinput.min.js}"></script>
     <script th:src="@{/assets/js/jquery.pjax.js}"></script>
-    <script th:src="@{/assets/js/vue.js}"></script>
+    <script th:src="@{/assets/layui/layui.js}"></script>
 </head>
 
 <body>
@@ -62,8 +60,8 @@
         <div class="navbar-header pull-left">
             <a href="#" class="navbar-brand">
                 <small>
-                    <i class="icon-leaf"></i>
-                    蓝色的鲸
+                    <i>🐳</i>
+                    Blue Whale
                 </small>
             </a><!-- /.brand -->
         </div><!-- /.navbar-header -->
@@ -378,7 +376,7 @@
                 <li th:if="${menu.childrenMenus}" th:menu-namePath="${menu.menuNamePath}">
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-edit" th:if="${menu.menuName=='记账'}"></i>
-                        <i class="icon-edit" th:if="${menu.menuName!='记账'}"></i>
+                        <i class="icon-desktop" th:if="${menu.menuName!='记账'}"></i>
                         <span class="menu-text" th:text="${menu.menuName}">一级菜单</span>
 
                         <b class="arrow icon-angle-down"></b>

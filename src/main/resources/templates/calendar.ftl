@@ -1,3 +1,5 @@
+<link rel="stylesheet" th:href="@{/assets/css/fullcalendar.css}"/>
+
 <div class="row">
     <div class="col-xs-12">
         <!-- PAGE CONTENT BEGINS -->

@@ -1,18 +1,18 @@
+<#assign ctx=request.contextPath/>
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <title>登录页</title>
 
-    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}" />
-    <link rel="stylesheet" th:href="@{/assets/css/font-awesome.min.css}" />
-    <link rel="stylesheet" th:href="@{/assets/css/ace.min.css}" />
-    <link rel="stylesheet" th:href="@{/assets/css/ace-rtl.min.css}" />
+    <link rel="stylesheet" href="${ctx}/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="${ctx}/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="${ctx}/assets/css/ace.min.css" />
+    <link rel="stylesheet" href="${ctx}/assets/css/ace-rtl.min.css" />
 
-    <script th:src="@{/assets/js/jquery-2.0.3.min.js}"></script>
-    <script th:src="@{/assets/js/custom/md5.js}"></script>
-    <script th:src="@{/assets/js/custom/common.js}"></script>
+    <script src="${ctx}/assets/js/jquery-2.0.3.min.js"></script>
+    <script src="${ctx}/assets/js/custom/md5.js"></script>
+    <script src="${ctx}/assets/js/custom/common.js"></script>
 </head>
 
 <body class="login-layout">
@@ -268,7 +268,7 @@
 
 
             var param = { 'userName': userName, 'password': password };
-            $.post("ajaxLogin", param, function (data) {
+            $.post("${ctx}/ajaxLogin", param, function (data) {
                 if (data && data.status === "SUCCESS") {
                     if (data.resultMap && data.resultMap['url']) {
                         window.open(data.resultMap['url'], '_self');
@@ -293,7 +293,7 @@
 
             formParam['password'] = hex_md5(password);
             formParam['rePassword'] = hex_md5(rePassword);
-            $.post('register', formParam, function (data) {
+            $.post('${ctx}/register', formParam, function (data) {
                 if (data && data.status === "SUCCESS") {
                     if (data.resultMap && data.resultMap['url']) {
                         alert("注册成功！");

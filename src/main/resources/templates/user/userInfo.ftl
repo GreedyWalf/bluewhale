@@ -1,4 +1,3 @@
-<input type="hidden" name="userId" id="userId" th:value="${user.userId}"/>
 <div class="page-header">
     <h1>
         用户详细信息
@@ -7,7 +6,8 @@
             3种可切换风格，为最具风格的你
         </small>
     </h1>
-</div><!-- /.page-header -->
+</div>
+<!-- /.page-header -->
 
 <div class="row">
     <div class="col-xs-12">
@@ -31,19 +31,19 @@
                         <label class="btn btn-sm btn-yellow active">
                             <span class="bigger-110">1</span>
 
-                            <input type="radio" value="1"/>
+                            <input type="radio" value="1" />
                         </label>
 
                         <label class="btn btn-sm btn-yellow">
                             <span class="bigger-110">2</span>
 
-                            <input type="radio" value="2"/>
+                            <input type="radio" value="2" />
                         </label>
 
                         <label class="btn btn-sm btn-yellow">
                             <span class="bigger-110">3</span>
 
-                            <input type="radio" value="3"/>
+                            <input type="radio" value="3" />
                         </label>
                     </div>
                 </div>
@@ -57,8 +57,7 @@
                 <div class="col-xs-12 col-sm-3 center">
                     <div>
                         <span class="profile-picture">
-                            <img id="userHeadImg" class="editable img-responsive" th:alt="${user.userName}"
-                                 th:src="${user.userHeadImg}"/>
+                            <img id="userHeadImg" class="editable img-responsive" alt="${user.userName}" src="${user.userHeadImg}" />
                         </span>
 
                         <div class="space-4"></div>
@@ -68,11 +67,11 @@
                                 <a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
                                     <i class="icon-circle light-green middle"></i>
                                     &nbsp;
-                                    <span class="white" th:text="${user.userName}">Alex M. Doe</span>
+                                    <span class="white">${user.userName}</span>
                                 </a>
 
                                 <ul class="align-left dropdown-menu dropdown-caret dropdown-lighter">
-                                    <li class="dropdown-header"> Change Status</li>
+                                    <li class="dropdown-header"> 切换状态</li>
 
                                     <li>
                                         <a href="#">
@@ -205,7 +204,7 @@
                             <div class="profile-info-name"> 用户名</div>
 
                             <div class="profile-info-value">
-                                <span class="editable" id="username" th:text="${user.userName}">alexdoe</span>
+                                <span class="editable" id="username">${user.userName}</span>
                             </div>
                         </div>
 
@@ -231,7 +230,7 @@
                             <div class="profile-info-name"> 加入时间</div>
 
                             <div class="profile-info-value">
-                                <span class="editable" id="signup" th:text="${user.createTime}">20/06/2010</span>
+                                <span class="editable" id="signup">${user.createTime?string}</span>
                             </div>
                         </div>
 
@@ -255,268 +254,268 @@
                     <div class="space-20"></div>
 
                     <!--<div class="widget-box transparent">-->
-                        <!--<div class="widget-header widget-header-small">-->
-                            <!--<h4 class="blue smaller">-->
-                                <!--<i class="icon-rss orange"></i>-->
-                                <!--最新动态-->
-                            <!--</h4>-->
+                    <!--<div class="widget-header widget-header-small">-->
+                    <!--<h4 class="blue smaller">-->
+                    <!--<i class="icon-rss orange"></i>-->
+                    <!--最新动态-->
+                    <!--</h4>-->
 
-                            <!--<div class="widget-toolbar action-buttons">-->
-                                <!--<a href="#" data-action="reload">-->
-                                    <!--<i class="icon-refresh blue"></i>-->
-                                <!--</a>-->
+                    <!--<div class="widget-toolbar action-buttons">-->
+                    <!--<a href="#" data-action="reload">-->
+                    <!--<i class="icon-refresh blue"></i>-->
+                    <!--</a>-->
 
-                                <!--&nbsp;-->
-                                <!--<a href="#" class="pink">-->
-                                    <!--<i class="icon-trash"></i>-->
-                                <!--</a>-->
-                            <!--</div>-->
-                        <!--</div>-->
+                    <!--&nbsp;-->
+                    <!--<a href="#" class="pink">-->
+                    <!--<i class="icon-trash"></i>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                        <!--<div class="widget-body">-->
-                            <!--<div class="widget-main padding-8">-->
-                                <!--<div id="profile-feed-1" class="profile-feed">-->
-                                    <!--<div class="profile-activity clearfix">-->
-                                        <!--<div>-->
-                                            <!--<img class="pull-left" alt="Alex Doe's avatar"-->
-                                                 <!--src="assets/avatars/avatar5.png"/>-->
-                                            <!--<a class="user" href="#"> Alex Doe </a>-->
-                                            <!--changed his profile photo.-->
-                                            <!--<a href="#">Take a look</a>-->
+                    <!--<div class="widget-body">-->
+                    <!--<div class="widget-main padding-8">-->
+                    <!--<div id="profile-feed-1" class="profile-feed">-->
+                    <!--<div class="profile-activity clearfix">-->
+                    <!--<div>-->
+                    <!--<img class="pull-left" alt="Alex Doe's avatar"-->
+                    <!--src="assets/avatars/avatar5.png"/>-->
+                    <!--<a class="user" href="#"> Alex Doe </a>-->
+                    <!--changed his profile photo.-->
+                    <!--<a href="#">Take a look</a>-->
 
-                                            <!--<div class="time">-->
-                                                <!--<i class="icon-time bigger-110"></i>-->
-                                                <!--an hour ago-->
-                                            <!--</div>-->
-                                        <!--</div>-->
+                    <!--<div class="time">-->
+                    <!--<i class="icon-time bigger-110"></i>-->
+                    <!--an hour ago-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                        <!--<div class="tools action-buttons">-->
-                                            <!--<a href="#" class="blue">-->
-                                                <!--<i class="icon-pencil bigger-125"></i>-->
-                                            <!--</a>-->
+                    <!--<div class="tools action-buttons">-->
+                    <!--<a href="#" class="blue">-->
+                    <!--<i class="icon-pencil bigger-125"></i>-->
+                    <!--</a>-->
 
-                                            <!--<a href="#" class="red">-->
-                                                <!--<i class="icon-remove bigger-125"></i>-->
-                                            <!--</a>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
+                    <!--<a href="#" class="red">-->
+                    <!--<i class="icon-remove bigger-125"></i>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                    <!--<div class="profile-activity clearfix">-->
-                                        <!--<div>-->
-                                            <!--<img class="pull-left" alt="Susan Smith's avatar"-->
-                                                 <!--src="assets/avatars/avatar1.png"/>-->
-                                            <!--<a class="user" href="#"> Susan Smith </a>-->
+                    <!--<div class="profile-activity clearfix">-->
+                    <!--<div>-->
+                    <!--<img class="pull-left" alt="Susan Smith's avatar"-->
+                    <!--src="assets/avatars/avatar1.png"/>-->
+                    <!--<a class="user" href="#"> Susan Smith </a>-->
 
-                                            <!--is now friends with Alex Doe.-->
-                                            <!--<div class="time">-->
-                                                <!--<i class="icon-time bigger-110"></i>-->
-                                                <!--2 hours ago-->
-                                            <!--</div>-->
-                                        <!--</div>-->
+                    <!--is now friends with Alex Doe.-->
+                    <!--<div class="time">-->
+                    <!--<i class="icon-time bigger-110"></i>-->
+                    <!--2 hours ago-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                        <!--<div class="tools action-buttons">-->
-                                            <!--<a href="#" class="blue">-->
-                                                <!--<i class="icon-pencil bigger-125"></i>-->
-                                            <!--</a>-->
+                    <!--<div class="tools action-buttons">-->
+                    <!--<a href="#" class="blue">-->
+                    <!--<i class="icon-pencil bigger-125"></i>-->
+                    <!--</a>-->
 
-                                            <!--<a href="#" class="red">-->
-                                                <!--<i class="icon-remove bigger-125"></i>-->
-                                            <!--</a>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
+                    <!--<a href="#" class="red">-->
+                    <!--<i class="icon-remove bigger-125"></i>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                    <!--<div class="profile-activity clearfix">-->
-                                        <!--<div>-->
-                                            <!--<i class="pull-left thumbicon icon-ok btn-success no-hover"></i>-->
-                                            <!--<a class="user" href="#"> Alex Doe </a>-->
-                                            <!--joined-->
-                                            <!--<a href="#">Country Music</a>-->
+                    <!--<div class="profile-activity clearfix">-->
+                    <!--<div>-->
+                    <!--<i class="pull-left thumbicon icon-ok btn-success no-hover"></i>-->
+                    <!--<a class="user" href="#"> Alex Doe </a>-->
+                    <!--joined-->
+                    <!--<a href="#">Country Music</a>-->
 
-                                            <!--group.-->
-                                            <!--<div class="time">-->
-                                                <!--<i class="icon-time bigger-110"></i>-->
-                                                <!--5 hours ago-->
-                                            <!--</div>-->
-                                        <!--</div>-->
+                    <!--group.-->
+                    <!--<div class="time">-->
+                    <!--<i class="icon-time bigger-110"></i>-->
+                    <!--5 hours ago-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                        <!--<div class="tools action-buttons">-->
-                                            <!--<a href="#" class="blue">-->
-                                                <!--<i class="icon-pencil bigger-125"></i>-->
-                                            <!--</a>-->
+                    <!--<div class="tools action-buttons">-->
+                    <!--<a href="#" class="blue">-->
+                    <!--<i class="icon-pencil bigger-125"></i>-->
+                    <!--</a>-->
 
-                                            <!--<a href="#" class="red">-->
-                                                <!--<i class="icon-remove bigger-125"></i>-->
-                                            <!--</a>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
+                    <!--<a href="#" class="red">-->
+                    <!--<i class="icon-remove bigger-125"></i>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                    <!--<div class="profile-activity clearfix">-->
-                                        <!--<div>-->
-                                            <!--<i class="pull-left thumbicon icon-picture btn-info no-hover"></i>-->
-                                            <!--<a class="user" href="#"> Alex Doe </a>-->
-                                            <!--uploaded a new photo.-->
-                                            <!--<a href="#">Take a look</a>-->
+                    <!--<div class="profile-activity clearfix">-->
+                    <!--<div>-->
+                    <!--<i class="pull-left thumbicon icon-picture btn-info no-hover"></i>-->
+                    <!--<a class="user" href="#"> Alex Doe </a>-->
+                    <!--uploaded a new photo.-->
+                    <!--<a href="#">Take a look</a>-->
 
-                                            <!--<div class="time">-->
-                                                <!--<i class="icon-time bigger-110"></i>-->
-                                                <!--5 hours ago-->
-                                            <!--</div>-->
-                                        <!--</div>-->
+                    <!--<div class="time">-->
+                    <!--<i class="icon-time bigger-110"></i>-->
+                    <!--5 hours ago-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                        <!--<div class="tools action-buttons">-->
-                                            <!--<a href="#" class="blue">-->
-                                                <!--<i class="icon-pencil bigger-125"></i>-->
-                                            <!--</a>-->
+                    <!--<div class="tools action-buttons">-->
+                    <!--<a href="#" class="blue">-->
+                    <!--<i class="icon-pencil bigger-125"></i>-->
+                    <!--</a>-->
 
-                                            <!--<a href="#" class="red">-->
-                                                <!--<i class="icon-remove bigger-125"></i>-->
-                                            <!--</a>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
+                    <!--<a href="#" class="red">-->
+                    <!--<i class="icon-remove bigger-125"></i>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                    <!--<div class="profile-activity clearfix">-->
-                                        <!--<div>-->
-                                            <!--<img class="pull-left" alt="David Palms's avatar"-->
-                                                 <!--src="assets/avatars/avatar4.png"/>-->
-                                            <!--<a class="user" href="#"> David Palms </a>-->
+                    <!--<div class="profile-activity clearfix">-->
+                    <!--<div>-->
+                    <!--<img class="pull-left" alt="David Palms's avatar"-->
+                    <!--src="assets/avatars/avatar4.png"/>-->
+                    <!--<a class="user" href="#"> David Palms </a>-->
 
-                                            <!--left a comment on Alex's wall.-->
-                                            <!--<div class="time">-->
-                                                <!--<i class="icon-time bigger-110"></i>-->
-                                                <!--8 hours ago-->
-                                            <!--</div>-->
-                                        <!--</div>-->
+                    <!--left a comment on Alex's wall.-->
+                    <!--<div class="time">-->
+                    <!--<i class="icon-time bigger-110"></i>-->
+                    <!--8 hours ago-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                        <!--<div class="tools action-buttons">-->
-                                            <!--<a href="#" class="blue">-->
-                                                <!--<i class="icon-pencil bigger-125"></i>-->
-                                            <!--</a>-->
+                    <!--<div class="tools action-buttons">-->
+                    <!--<a href="#" class="blue">-->
+                    <!--<i class="icon-pencil bigger-125"></i>-->
+                    <!--</a>-->
 
-                                            <!--<a href="#" class="red">-->
-                                                <!--<i class="icon-remove bigger-125"></i>-->
-                                            <!--</a>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
+                    <!--<a href="#" class="red">-->
+                    <!--<i class="icon-remove bigger-125"></i>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                    <!--<div class="profile-activity clearfix">-->
-                                        <!--<div>-->
-                                            <!--<i class="pull-left thumbicon icon-edit btn-pink no-hover"></i>-->
-                                            <!--<a class="user" href="#"> Alex Doe </a>-->
-                                            <!--published a new blog post.-->
-                                            <!--<a href="#">Read now</a>-->
+                    <!--<div class="profile-activity clearfix">-->
+                    <!--<div>-->
+                    <!--<i class="pull-left thumbicon icon-edit btn-pink no-hover"></i>-->
+                    <!--<a class="user" href="#"> Alex Doe </a>-->
+                    <!--published a new blog post.-->
+                    <!--<a href="#">Read now</a>-->
 
-                                            <!--<div class="time">-->
-                                                <!--<i class="icon-time bigger-110"></i>-->
-                                                <!--11 hours ago-->
-                                            <!--</div>-->
-                                        <!--</div>-->
+                    <!--<div class="time">-->
+                    <!--<i class="icon-time bigger-110"></i>-->
+                    <!--11 hours ago-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                        <!--<div class="tools action-buttons">-->
-                                            <!--<a href="#" class="blue">-->
-                                                <!--<i class="icon-pencil bigger-125"></i>-->
-                                            <!--</a>-->
+                    <!--<div class="tools action-buttons">-->
+                    <!--<a href="#" class="blue">-->
+                    <!--<i class="icon-pencil bigger-125"></i>-->
+                    <!--</a>-->
 
-                                            <!--<a href="#" class="red">-->
-                                                <!--<i class="icon-remove bigger-125"></i>-->
-                                            <!--</a>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
+                    <!--<a href="#" class="red">-->
+                    <!--<i class="icon-remove bigger-125"></i>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                    <!--<div class="profile-activity clearfix">-->
-                                        <!--<div>-->
-                                            <!--<img class="pull-left" alt="Alex Doe's avatar"-->
-                                                 <!--src="assets/avatars/avatar5.png"/>-->
-                                            <!--<a class="user" href="#"> Alex Doe </a>-->
+                    <!--<div class="profile-activity clearfix">-->
+                    <!--<div>-->
+                    <!--<img class="pull-left" alt="Alex Doe's avatar"-->
+                    <!--src="assets/avatars/avatar5.png"/>-->
+                    <!--<a class="user" href="#"> Alex Doe </a>-->
 
-                                            <!--upgraded his skills.-->
-                                            <!--<div class="time">-->
-                                                <!--<i class="icon-time bigger-110"></i>-->
-                                                <!--12 hours ago-->
-                                            <!--</div>-->
-                                        <!--</div>-->
+                    <!--upgraded his skills.-->
+                    <!--<div class="time">-->
+                    <!--<i class="icon-time bigger-110"></i>-->
+                    <!--12 hours ago-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                        <!--<div class="tools action-buttons">-->
-                                            <!--<a href="#" class="blue">-->
-                                                <!--<i class="icon-pencil bigger-125"></i>-->
-                                            <!--</a>-->
+                    <!--<div class="tools action-buttons">-->
+                    <!--<a href="#" class="blue">-->
+                    <!--<i class="icon-pencil bigger-125"></i>-->
+                    <!--</a>-->
 
-                                            <!--<a href="#" class="red">-->
-                                                <!--<i class="icon-remove bigger-125"></i>-->
-                                            <!--</a>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
+                    <!--<a href="#" class="red">-->
+                    <!--<i class="icon-remove bigger-125"></i>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                    <!--<div class="profile-activity clearfix">-->
-                                        <!--<div>-->
-                                            <!--<i class="pull-left thumbicon icon-key btn-info no-hover"></i>-->
-                                            <!--<a class="user" href="#"> Alex Doe </a>-->
+                    <!--<div class="profile-activity clearfix">-->
+                    <!--<div>-->
+                    <!--<i class="pull-left thumbicon icon-key btn-info no-hover"></i>-->
+                    <!--<a class="user" href="#"> Alex Doe </a>-->
 
-                                            <!--logged in.-->
-                                            <!--<div class="time">-->
-                                                <!--<i class="icon-time bigger-110"></i>-->
-                                                <!--12 hours ago-->
-                                            <!--</div>-->
-                                        <!--</div>-->
+                    <!--logged in.-->
+                    <!--<div class="time">-->
+                    <!--<i class="icon-time bigger-110"></i>-->
+                    <!--12 hours ago-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                        <!--<div class="tools action-buttons">-->
-                                            <!--<a href="#" class="blue">-->
-                                                <!--<i class="icon-pencil bigger-125"></i>-->
-                                            <!--</a>-->
+                    <!--<div class="tools action-buttons">-->
+                    <!--<a href="#" class="blue">-->
+                    <!--<i class="icon-pencil bigger-125"></i>-->
+                    <!--</a>-->
 
-                                            <!--<a href="#" class="red">-->
-                                                <!--<i class="icon-remove bigger-125"></i>-->
-                                            <!--</a>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
+                    <!--<a href="#" class="red">-->
+                    <!--<i class="icon-remove bigger-125"></i>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                    <!--<div class="profile-activity clearfix">-->
-                                        <!--<div>-->
-                                            <!--<i class="pull-left thumbicon icon-off btn-inverse no-hover"></i>-->
-                                            <!--<a class="user" href="#"> Alex Doe </a>-->
+                    <!--<div class="profile-activity clearfix">-->
+                    <!--<div>-->
+                    <!--<i class="pull-left thumbicon icon-off btn-inverse no-hover"></i>-->
+                    <!--<a class="user" href="#"> Alex Doe </a>-->
 
-                                            <!--logged out.-->
-                                            <!--<div class="time">-->
-                                                <!--<i class="icon-time bigger-110"></i>-->
-                                                <!--16 hours ago-->
-                                            <!--</div>-->
-                                        <!--</div>-->
+                    <!--logged out.-->
+                    <!--<div class="time">-->
+                    <!--<i class="icon-time bigger-110"></i>-->
+                    <!--16 hours ago-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                        <!--<div class="tools action-buttons">-->
-                                            <!--<a href="#" class="blue">-->
-                                                <!--<i class="icon-pencil bigger-125"></i>-->
-                                            <!--</a>-->
+                    <!--<div class="tools action-buttons">-->
+                    <!--<a href="#" class="blue">-->
+                    <!--<i class="icon-pencil bigger-125"></i>-->
+                    <!--</a>-->
 
-                                            <!--<a href="#" class="red">-->
-                                                <!--<i class="icon-remove bigger-125"></i>-->
-                                            <!--</a>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
+                    <!--<a href="#" class="red">-->
+                    <!--<i class="icon-remove bigger-125"></i>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                    <!--<div class="profile-activity clearfix">-->
-                                        <!--<div>-->
-                                            <!--<i class="pull-left thumbicon icon-key btn-info no-hover"></i>-->
-                                            <!--<a class="user" href="#"> Alex Doe </a>-->
+                    <!--<div class="profile-activity clearfix">-->
+                    <!--<div>-->
+                    <!--<i class="pull-left thumbicon icon-key btn-info no-hover"></i>-->
+                    <!--<a class="user" href="#"> Alex Doe </a>-->
 
-                                            <!--logged in.-->
-                                            <!--<div class="time">-->
-                                                <!--<i class="icon-time bigger-110"></i>-->
-                                                <!--16 hours ago-->
-                                            <!--</div>-->
-                                        <!--</div>-->
+                    <!--logged in.-->
+                    <!--<div class="time">-->
+                    <!--<i class="icon-time bigger-110"></i>-->
+                    <!--16 hours ago-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                                        <!--<div class="tools action-buttons">-->
-                                            <!--<a href="#" class="blue">-->
-                                                <!--<i class="icon-pencil bigger-125"></i>-->
-                                            <!--</a>-->
+                    <!--<div class="tools action-buttons">-->
+                    <!--<a href="#" class="blue">-->
+                    <!--<i class="icon-pencil bigger-125"></i>-->
+                    <!--</a>-->
 
-                                            <!--<a href="#" class="red">-->
-                                                <!--<i class="icon-remove bigger-125"></i>-->
-                                            <!--</a>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
+                    <!--<a href="#" class="red">-->
+                    <!--<i class="icon-remove bigger-125"></i>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
                     <!--</div>-->
 
                     <div class="hr hr2 hr-double"></div>
@@ -573,8 +572,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-3 center">
                                     <span class="profile-picture">
-                                        <img class="editable img-responsive" alt="Alex's Avatar" id="avatar2"
-                                             src="assets/avatars/profile-pic.jpg"/>
+                                        <img class="editable img-responsive" alt="Alex's Avatar" id="avatar2" src="assets/avatars/profile-pic.jpg" />
                                     </span>
 
                                     <div class="space space-4"></div>
@@ -696,16 +694,13 @@
                                         <div class="widget-body">
                                             <div class="widget-main">
                                                 <p>
-                                                    My job is mostly lorem ipsuming and dolor sit ameting as long as
-                                                    consectetur adipiscing elit.
+                                                    My job is mostly lorem ipsuming and dolor sit ameting as long as consectetur adipiscing elit.
                                                 </p>
                                                 <p>
-                                                    Sometimes quisque commodo massa gets in the way and sed ipsum
-                                                    porttitor facilisis.
+                                                    Sometimes quisque commodo massa gets in the way and sed ipsum porttitor facilisis.
                                                 </p>
                                                 <p>
-                                                    The best thing about my job is that vestibulum id ligula porta felis
-                                                    euismod and nullam quis risus eget urna mollis ornare.
+                                                    The best thing about my job is that vestibulum id ligula porta felis euismod and nullam quis risus eget urna mollis ornare.
                                                 </p>
                                                 <p>
                                                     Thanks for visiting my profile.
@@ -728,8 +723,7 @@
                                             <div class="widget-main padding-16">
                                                 <div class="clearfix">
                                                     <div class="grid3 center">
-                                                        <div class="easy-pie-chart percentage" data-percent="45"
-                                                             data-color="#CA5952">
+                                                        <div class="easy-pie-chart percentage" data-percent="45" data-color="#CA5952">
                                                             <span class="percent">45</span>%
                                                         </div>
 
@@ -738,8 +732,7 @@
                                                     </div>
 
                                                     <div class="grid3 center">
-                                                        <div class="center easy-pie-chart percentage" data-percent="90"
-                                                             data-color="#59A84B">
+                                                        <div class="center easy-pie-chart percentage" data-percent="90" data-color="#59A84B">
                                                             <span class="percent">90</span>%
                                                         </div>
 
@@ -748,8 +741,7 @@
                                                     </div>
 
                                                     <div class="grid3 center">
-                                                        <div class="center easy-pie-chart percentage" data-percent="80"
-                                                             data-color="#9585BF">
+                                                        <div class="center easy-pie-chart percentage" data-percent="80" data-color="#9585BF">
                                                             <span class="percent">80</span>%
                                                         </div>
 
@@ -769,8 +761,7 @@
                                                     </div>
 
                                                     <div class="progress">
-                                                        <div class="progress-bar progress-bar-success"
-                                                             style="width:72%">
+                                                        <div class="progress-bar progress-bar-success" style="wid72%">
                                                             <span class="pull-left">Javascript & jQuery</span>
 
                                                             <span class="pull-right">72%</span>
@@ -778,7 +769,7 @@
                                                     </div>
 
                                                     <div class="progress">
-                                                        <div class="progress-bar progress-bar-purple" style="width:70%">
+                                                        <div class="progress-bar progress-bar-purple" style="wid70%">
                                                             <span class="pull-left">PHP & MySQL</span>
 
                                                             <span class="pull-right">70%</span>
@@ -786,8 +777,7 @@
                                                     </div>
 
                                                     <div class="progress">
-                                                        <div class="progress-bar progress-bar-warning"
-                                                             style="width:50%">
+                                                        <div class="progress-bar progress-bar-warning" style="wid50%">
                                                             <span class="pull-left">Wordpress</span>
 
                                                             <span class="pull-right">50%</span>
@@ -795,7 +785,7 @@
                                                     </div>
 
                                                     <div class="progress">
-                                                        <div class="progress-bar progress-bar-danger" style="width:35%">
+                                                        <div class="progress-bar progress-bar-danger" style="wid35%">
                                                             <span class="pull-left">Photoshop</span>
 
                                                             <span class="pull-right">35%</span>
@@ -815,8 +805,7 @@
                                 <div class="span6">
                                     <div class="profile-activity clearfix">
                                         <div>
-                                            <img class="pull-left" alt="Alex Doe's avatar"
-                                                 src="assets/avatars/avatar5.png"/>
+                                            <img class="pull-left" alt="Alex Doe's avatar" src="assets/avatars/avatar5.png" />
                                             <a class="user" href="#"> Alex Doe </a>
                                             changed his profile photo.
                                             <a href="#">Take a look</a>
@@ -840,8 +829,7 @@
 
                                     <div class="profile-activity clearfix">
                                         <div>
-                                            <img class="pull-left" alt="Susan Smith's avatar"
-                                                 src="assets/avatars/avatar1.png"/>
+                                            <img class="pull-left" alt="Susan Smith's avatar" src="assets/avatars/avatar1.png" />
                                             <a class="user" href="#"> Susan Smith </a>
 
                                             is now friends with Alex Doe.
@@ -913,8 +901,7 @@
 
                                     <div class="profile-activity clearfix">
                                         <div>
-                                            <img class="pull-left" alt="David Palms's avatar"
-                                                 src="assets/avatars/avatar4.png"/>
+                                            <img class="pull-left" alt="David Palms's avatar" src="assets/avatars/avatar4.png" />
                                             <a class="user" href="#"> David Palms </a>
 
                                             left a comment on Alex's wall.
@@ -964,8 +951,7 @@
 
                                     <div class="profile-activity clearfix">
                                         <div>
-                                            <img class="pull-left" alt="Alex Doe's avatar"
-                                                 src="assets/avatars/avatar5.png"/>
+                                            <img class="pull-left" alt="Alex Doe's avatar" src="assets/avatars/avatar5.png" />
                                             <a class="user" href="#"> Alex Doe </a>
 
                                             upgraded his skills.
@@ -1078,7 +1064,7 @@
                                     <div class="inline position-relative">
                                         <div class="user">
                                             <a href="#">
-                                                <img src="assets/avatars/avatar4.png" alt="Bob Doe's avatar"/>
+                                                <img src="assets/avatars/avatar4.png" alt="Bob Doe's avatar" />
                                             </a>
                                         </div>
 
@@ -1126,7 +1112,7 @@
                                     <div class="inline position-relative">
                                         <div class="user">
                                             <a href="#">
-                                                <img src="assets/avatars/avatar1.png" alt="Rose Doe's avatar"/>
+                                                <img src="assets/avatars/avatar1.png" alt="Rose Doe's avatar" />
                                             </a>
                                         </div>
 
@@ -1174,7 +1160,7 @@
                                     <div class="inline position-relative">
                                         <div class="user">
                                             <a href="#">
-                                                <img src="assets/avatars/avatar.png" alt="Jim Doe's avatar"/>
+                                                <img src="assets/avatars/avatar.png" alt="Jim Doe's avatar" />
                                             </a>
                                         </div>
 
@@ -1222,7 +1208,7 @@
                                     <div class="inline position-relative">
                                         <div class="user">
                                             <a href="#">
-                                                <img src="assets/avatars/avatar5.png" alt="Alex Doe's avatar"/>
+                                                <img src="assets/avatars/avatar5.png" alt="Alex Doe's avatar" />
                                             </a>
                                         </div>
 
@@ -1270,7 +1256,7 @@
                                     <div class="inline position-relative">
                                         <div class="user">
                                             <a href="#">
-                                                <img src="assets/avatars/avatar2.png" alt="Phil Doe's avatar"/>
+                                                <img src="assets/avatars/avatar2.png" alt="Phil Doe's avatar" />
                                             </a>
                                         </div>
 
@@ -1318,7 +1304,7 @@
                                     <div class="inline position-relative">
                                         <div class="user">
                                             <a href="#">
-                                                <img src="assets/avatars/avatar3.png" alt="Susan Doe's avatar"/>
+                                                <img src="assets/avatars/avatar3.png" alt="Susan Doe's avatar" />
                                             </a>
                                         </div>
 
@@ -1366,7 +1352,7 @@
                                     <div class="inline position-relative">
                                         <div class="user">
                                             <a href="#">
-                                                <img src="assets/avatars/avatar1.png" alt="Jennifer Doe's avatar"/>
+                                                <img src="assets/avatars/avatar1.png" alt="Jennifer Doe's avatar" />
                                             </a>
                                         </div>
 
@@ -1414,7 +1400,7 @@
                                     <div class="inline position-relative">
                                         <div class="user">
                                             <a href="#">
-                                                <img src="assets/avatars/avatar3.png" alt="Alexa Doe's avatar"/>
+                                                <img src="assets/avatars/avatar3.png" alt="Alexa Doe's avatar" />
                                             </a>
                                         </div>
 
@@ -1477,7 +1463,7 @@
                             <ul class="ace-thumbnails">
                                 <li>
                                     <a href="#" data-rel="colorbox">
-                                        <img alt="150x150" src="assets/images/gallery/thumb-1.jpg"/>
+                                        <img alt="150x150" src="assets/images/gallery/thumb-1.jpg" />
                                         <div class="text">
                                             <div class="inner">Sample Caption on Hover</div>
                                         </div>
@@ -1504,7 +1490,7 @@
 
                                 <li>
                                     <a href="#" data-rel="colorbox">
-                                        <img alt="150x150" src="assets/images/gallery/thumb-2.jpg"/>
+                                        <img alt="150x150" src="assets/images/gallery/thumb-2.jpg" />
                                         <div class="text">
                                             <div class="inner">Sample Caption on Hover</div>
                                         </div>
@@ -1531,7 +1517,7 @@
 
                                 <li>
                                     <a href="#" data-rel="colorbox">
-                                        <img alt="150x150" src="assets/images/gallery/thumb-3.jpg"/>
+                                        <img alt="150x150" src="assets/images/gallery/thumb-3.jpg" />
                                         <div class="text">
                                             <div class="inner">Sample Caption on Hover</div>
                                         </div>
@@ -1558,7 +1544,7 @@
 
                                 <li>
                                     <a href="#" data-rel="colorbox">
-                                        <img alt="150x150" src="assets/images/gallery/thumb-4.jpg"/>
+                                        <img alt="150x150" src="assets/images/gallery/thumb-4.jpg" />
                                         <div class="text">
                                             <div class="inner">Sample Caption on Hover</div>
                                         </div>
@@ -1585,7 +1571,7 @@
 
                                 <li>
                                     <a href="#" data-rel="colorbox">
-                                        <img alt="150x150" src="assets/images/gallery/thumb-5.jpg"/>
+                                        <img alt="150x150" src="assets/images/gallery/thumb-5.jpg" />
                                         <div class="text">
                                             <div class="inner">Sample Caption on Hover</div>
                                         </div>
@@ -1612,7 +1598,7 @@
 
                                 <li>
                                     <a href="#" data-rel="colorbox">
-                                        <img alt="150x150" src="assets/images/gallery/thumb-6.jpg"/>
+                                        <img alt="150x150" src="assets/images/gallery/thumb-6.jpg" />
                                         <div class="text">
                                             <div class="inner">Sample Caption on Hover</div>
                                         </div>
@@ -1639,7 +1625,7 @@
 
                                 <li>
                                     <a href="#" data-rel="colorbox">
-                                        <img alt="150x150" src="assets/images/gallery/thumb-1.jpg"/>
+                                        <img alt="150x150" src="assets/images/gallery/thumb-1.jpg" />
                                         <div class="text">
                                             <div class="inner">Sample Caption on Hover</div>
                                         </div>
@@ -1666,7 +1652,7 @@
 
                                 <li>
                                     <a href="#" data-rel="colorbox">
-                                        <img alt="150x150" src="assets/images/gallery/thumb-2.jpg"/>
+                                        <img alt="150x150" src="assets/images/gallery/thumb-2.jpg" />
                                         <div class="text">
                                             <div class="inner">Sample Caption on Hover</div>
                                         </div>
@@ -1707,9 +1693,8 @@
                         <div class="inline middle blue bigger-110"> Your profile is 70% complete</div>
 
                         &nbsp; &nbsp; &nbsp;
-                        <div style="width:200px;" data-percent="70%"
-                             class="inline middle no-margin progress progress-striped active">
-                            <div class="progress-bar progress-bar-success" style="width:70%"></div>
+                        <div style="wid200px;" data-percent="70%" class="inline middle no-margin progress progress-striped active">
+                            <div class="progress-bar progress-bar-success" style="wid70%"></div>
                         </div>
                     </div>
                     <!-- /well -->
@@ -1747,34 +1732,28 @@
 
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-4">
-                                            <input type="file"/>
+                                            <input type="file" />
                                         </div>
 
                                         <div class="vspace-xs"></div>
 
                                         <div class="col-xs-12 col-sm-8">
                                             <div class="form-group">
-                                                <label class="col-sm-4 control-label no-padding-right"
-                                                       for="form-field-username">Username</label>
+                                                <label class="col-sm-4 control-label no-padding-right" for="form-field-username">Username</label>
 
                                                 <div class="col-sm-8">
-                                                    <input class="col-xs-12 col-sm-10" type="text"
-                                                           id="form-field-username" placeholder="Username"
-                                                           value="alexdoe"/>
+                                                    <input class="col-xs-12 col-sm-10" type="text" id="form-field-username" placeholder="Username" value="alexdoe" />
                                                 </div>
                                             </div>
 
                                             <div class="space-4"></div>
 
                                             <div class="form-group">
-                                                <label class="col-sm-4 control-label no-padding-right"
-                                                       for="form-field-first">Name</label>
+                                                <label class="col-sm-4 control-label no-padding-right" for="form-field-first">Name</label>
 
                                                 <div class="col-sm-8">
-                                                    <input class="input-small" type="text" id="form-field-first"
-                                                           placeholder="First Name" value="Alex"/>
-                                                    <input class="input-small" type="text" id="form-field-last"
-                                                           placeholder="Last Name" value="Doe"/>
+                                                    <input class="input-small" type="text" id="form-field-first" placeholder="First Name" value="Alex" />
+                                                    <input class="input-small" type="text" id="form-field-last" placeholder="Last Name" value="Doe" />
                                                 </div>
                                             </div>
                                         </div>
@@ -1782,16 +1761,13 @@
 
                                     <hr/>
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-date">Birth
-                                            Date
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-date">Birth Date
                                         </label>
 
                                         <div class="col-sm-9">
                                             <div class="input-medium">
                                                 <div class="input-group">
-                                                    <input class="input-medium date-picker" id="form-field-date"
-                                                           type="text" data-date-format="dd-mm-yyyy"
-                                                           placeholder="dd-mm-yyyy"
+                                                    <input class="input-medium date-picker" id="form-field-date" type="text" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy"
                                                     />
                                                     <span class="input-group-addon">
                                                         <i class="icon-calendar"></i>
@@ -1808,13 +1784,13 @@
 
                                         <div class="col-sm-9">
                                             <label class="inline">
-                                                <input name="form-field-radio" type="radio" class="ace"/>
+                                                <input name="form-field-radio" type="radio" class="ace" />
                                                 <span class="lbl"> Male</span>
                                             </label>
 
                                             &nbsp; &nbsp; &nbsp;
                                             <label class="inline">
-                                                <input name="form-field-radio" type="radio" class="ace"/>
+                                                <input name="form-field-radio" type="radio" class="ace" />
                                                 <span class="lbl"> Female</span>
                                             </label>
                                         </div>
@@ -1838,7 +1814,7 @@
 
                                         <div class="col-sm-9">
                                             <span class="input-icon input-icon-right">
-                                                <input type="email" id="form-field-email" value="alexdoe@gmail.com"/>
+                                                <input type="email" id="form-field-email" value="alexdoe@gmail.com" />
                                                 <i class="icon-envelope"></i>
                                             </span>
                                         </div>
@@ -1851,8 +1827,7 @@
 
                                         <div class="col-sm-9">
                                             <span class="input-icon input-icon-right">
-                                                <input type="url" id="form-field-website"
-                                                       value="http://www.alexdoe.com/"/>
+                                                <input type="url" id="form-field-website" value="http://www.alexdoe.com/" />
                                                 <i class="icon-globe"></i>
                                             </span>
                                         </div>
@@ -1865,8 +1840,7 @@
 
                                         <div class="col-sm-9">
                                             <span class="input-icon input-icon-right">
-                                                <input class="input-medium input-mask-phone" type="text"
-                                                       id="form-field-phone"/>
+                                                <input class="input-medium input-mask-phone" type="text" id="form-field-phone" />
                                                 <i class="icon-phone icon-flip-horizontal"></i>
                                             </span>
                                         </div>
@@ -1876,12 +1850,11 @@
                                     <h4 class="header blue bolder smaller">Social</h4>
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label no-padding-right"
-                                               for="form-field-facebook">Facebook</label>
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-facebook">Facebook</label>
 
                                         <div class="col-sm-9">
                                             <span class="input-icon">
-                                                <input type="text" value="facebook_alexdoe" id="form-field-facebook"/>
+                                                <input type="text" value="facebook_alexdoe" id="form-field-facebook" />
                                                 <i class="icon-facebook blue"></i>
                                             </span>
                                         </div>
@@ -1894,7 +1867,7 @@
 
                                         <div class="col-sm-9">
                                             <span class="input-icon">
-                                                <input type="text" value="twitter_alexdoe" id="form-field-twitter"/>
+                                                <input type="text" value="twitter_alexdoe" id="form-field-twitter" />
                                                 <i class="icon-twitter light-blue"></i>
                                             </span>
                                         </div>
@@ -1907,7 +1880,7 @@
 
                                         <div class="col-sm-9">
                                             <span class="input-icon">
-                                                <input type="text" value="google_alexdoe" id="form-field-gplus"/>
+                                                <input type="text" value="google_alexdoe" id="form-field-gplus" />
                                                 <i class="icon-google-plus red"></i>
                                             </span>
                                         </div>
@@ -1919,7 +1892,7 @@
 
                                     <div>
                                         <label class="inline">
-                                            <input type="checkbox" name="form-field-checkbox" class="ace"/>
+                                            <input type="checkbox" name="form-field-checkbox" class="ace" />
                                             <span class="lbl"> Make my profile public</span>
                                         </label>
                                     </div>
@@ -1928,7 +1901,7 @@
 
                                     <div>
                                         <label class="inline">
-                                            <input type="checkbox" name="form-field-checkbox" class="ace"/>
+                                            <input type="checkbox" name="form-field-checkbox" class="ace" />
                                             <span class="lbl"> Email me new updates</span>
                                         </label>
                                     </div>
@@ -1937,7 +1910,7 @@
 
                                     <div>
                                         <label class="inline">
-                                            <input type="checkbox" name="form-field-checkbox" class="ace"/>
+                                            <input type="checkbox" name="form-field-checkbox" class="ace" />
                                             <span class="lbl"> Keep a history of my conversations</span>
                                         </label>
 
@@ -1945,7 +1918,7 @@
                                             <span class="space-2 block"></span>
 
                                             for
-                                            <input type="text" class="input-mini" maxlength="3"/> days
+                                            <input type="text" class="input-mini" maxlength="3" /> days
                                         </label>
                                     </div>
                                 </div>
@@ -1954,24 +1927,22 @@
                                     <div class="space-10"></div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-pass1">New
-                                            Password
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-pass1">New Password
                                         </label>
 
                                         <div class="col-sm-9">
-                                            <input type="password" id="form-field-pass1"/>
+                                            <input type="password" id="form-field-pass1" />
                                         </div>
                                     </div>
 
                                     <div class="space-4"></div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-pass2">Confirm
-                                            Password
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-pass2">Confirm Password
                                         </label>
 
                                         <div class="col-sm-9">
-                                            <input type="password" id="form-field-pass2"/>
+                                            <input type="password" id="form-field-pass2" />
                                         </div>
                                     </div>
                                 </div>
@@ -2009,7 +1980,7 @@
         $.fn.editable.defaults.mode = 'inline';
         $.fn.editableform.loading = "<div class='editableform-loading'><i class='light-blue icon-2x icon-spinner icon-spin'></i></div>";
         $.fn.editableform.buttons = '<button type="submit" class="btn btn-info editable-submit"><i class="icon-ok icon-white"></i></button>' +
-            '<button type="button" class="btn editable-cancel"><i class="icon-remove"></i></button>';
+                '<button type="button" class="btn editable-cancel"><i class="icon-remove"></i></button>';
 
         //editables
         $('#username').editable({
@@ -2026,29 +1997,29 @@
             "TR": "Turkey",
             "US": "United States"
         }, function (k, v) {
-            countries.push({id: k, text: v});
+            countries.push({ id: k, text: v });
         });
 
         var cities = [];
         cities["CA"] = [];
         $.each(["Toronto", "Ottawa", "Calgary", "Vancouver"], function (k, v) {
-            cities["CA"].push({id: v, text: v});
+            cities["CA"].push({ id: v, text: v });
         });
         cities["IN"] = [];
         $.each(["Delhi", "Mumbai", "Bangalore"], function (k, v) {
-            cities["IN"].push({id: v, text: v});
+            cities["IN"].push({ id: v, text: v });
         });
         cities["NL"] = [];
         $.each(["Amsterdam", "Rotterdam", "The Hague"], function (k, v) {
-            cities["NL"].push({id: v, text: v});
+            cities["NL"].push({ id: v, text: v });
         });
         cities["TR"] = [];
         $.each(["Ankara", "Istanbul", "Izmir"], function (k, v) {
-            cities["TR"].push({id: v, text: v});
+            cities["TR"].push({ id: v, text: v });
         });
         cities["US"] = [];
         $.each(["New York", "Miami", "Los Angeles", "Chicago", "Wysconsin"], function (k, v) {
-            cities["US"].push({id: v, text: v});
+            cities["US"].push({ id: v, text: v });
         });
 
         var currentValue = "NL";
@@ -2071,7 +2042,7 @@
 						}).editable('setValue', null);
                  */
 
-                    //so we remove it altogether and create a new element
+                        //so we remove it altogether and create a new element
                 var city = $('#city').removeAttr('id').get(0);
                 $(city).clone().attr('id', 'city').text('Select City').editable({
                     type: 'select2',
@@ -2191,7 +2162,7 @@
                             if (thumb) $('#userHeadImg').get(0).src = thumb;
                         }
 
-                        deferred.resolve({'status': 'OK'});
+                        deferred.resolve({ 'status': 'OK' });
                         if (last_gritter) $.gritter.remove(last_gritter);
                         last_gritter = $.gritter.add({
                             title: '头像更新成功',
@@ -2212,7 +2183,7 @@
                     var src = $("#userHeadImg").attr("src");
                     var userId = $("#userId").val();
                     //不知道插件怎么用的，暂时将用户上传后的图片流存在数据库中
-                    $.post('user/updateUser', {'userHeadImg': src, 'userId': userId}, function (data) {
+                    $.post('user/updateUser', { 'userHeadImg': src, 'userId': userId }, function (data) {
                         if (data && data.status === "SUCCESS") {
                             console.log("头像图片上传成功！");
                         }
@@ -2226,24 +2197,24 @@
         //another option is using modals
         $('#avatar2').on('click', function () {
             var modal =
-                '<div class="modal hide fade">\
-                    <div class="modal-header">\
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>\
-                        <h4 class="blue">Change Avatar</h4>\
-                    </div>\
-                    \
-                    <form class="no-margin">\
-                    <div class="modal-body">\
-                        <div class="space-4"></div>\
-                        <div style="width:75%;margin-left:12%;"><input type="file" name="file-input" /></div>\
-                    </div>\
-                    \
-                    <div class="modal-footer center">\
-                        <button type="submit" class="btn btn-small btn-success"><i class="icon-ok"></i> Submit</button>\
-                        <button type="button" class="btn btn-small" data-dismiss="modal"><i class="icon-remove"></i> Cancel</button>\
-                    </div>\
-                    </form>\
-                </div>';
+                    '<div class="modal hide fade">\
+                        <div class="modal-header">\
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>\
+                            <h4 class="blue">Change Avatar</h4>\
+                        </div>\
+                        \
+                        <form class="no-margin">\
+                        <div class="modal-body">\
+                            <div class="space-4"></div>\
+                            <div style="wid75%;margin-left:12%;"><input type="file" name="file-input" /></div>\
+                        </div>\
+                        \
+                        <div class="modal-footer center">\
+                            <button type="submit" class="btn btn-small btn-success"><i class="icon-ok"></i> Submit</button>\
+                            <button type="button" class="btn btn-small" data-dismiss="modal"><i class="icon-remove"></i> Cancel</button>\
+                        </div>\
+                        </form>\
+                    </div>';
 
 
             var modal = $(modal);
@@ -2274,7 +2245,7 @@
                     else {//file is a File object
                         var type = $.trim(file.type);
                         if ((type.length > 0 && !(/^image\/(jpe?g|png|gif)$/i).test(type))
-                            || (type.length == 0 && !(/\.(jpe?g|png|gif)$/i).test(file.name))//for android default browser!
+                                || (type.length == 0 && !(/\.(jpe?g|png|gif)$/i).test(file.name))//for android default browser!
                         ) return false;
 
                         if (file.size > 110000) {//~100Kb
@@ -2366,7 +2337,7 @@
 
         ///////////////////////////////////////////
         $('#user-profile-3')
-            .find('input[type=file]').ace_file_input({
+                .find('input[type=file]').ace_file_input({
             style: 'well',
             btn_choose: 'Change avatar',
             btn_change: null,
@@ -2381,7 +2352,7 @@
                 else {//file is a File object
                     var type = $.trim(file.type);
                     if ((type.length > 0 && !(/^image\/(jpe?g|png|gif)$/i).test(type))
-                        || (type.length == 0 && !(/\.(jpe?g|png|gif)$/i).test(file.name))//for android default browser!
+                            || (type.length == 0 && !(/\.(jpe?g|png|gif)$/i).test(file.name))//for android default browser!
                     ) return false;
 
                     if (file.size > 110000) {//~100Kb
@@ -2392,10 +2363,10 @@
                 return true;
             }
         })
-            .end().find('button[type=reset]').on(ace.click_event, function () {
+                .end().find('button[type=reset]').on(ace.click_event, function () {
             $('#user-profile-3 input[type=file]').ace_file_input('reset_input');
         })
-            .end().find('.date-picker').datepicker().next().on(ace.click_event, function () {
+                .end().find('.date-picker').datepicker().next().on(ace.click_event, function () {
             $(this).prev().focus();
         })
 

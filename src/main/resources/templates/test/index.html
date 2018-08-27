@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>测试pjax</title>
-    <script th:src="@{/assets/js/jquery.js}"></script>
-    <script th:src="@{/assets/js/jquery.pjax.js}"></script>
+    <script src="${ctx}/assets/js/jquery.js}"></script>
+    <script src="${ctx}/assets/js/jquery.pjax.js}"></script>
 </head>
 <body>
-<input type="hidden" th:value="${#httpServletRequest.getParameter('preUrl')}" id="preUrl"/>
+<input type="hidden" value="${#httpServletRequest.getParameter('preUrl')}" id="preUrl"/>
 <ul>
-    <li><a th:href="@{/test/test2}">test2</a></li>
-    <li><a th:href="@{/test/test3}">test3</a></li>
+    <li><a href="${ctx}/test/test2}">test2</a></li>
+    <li><a href="${ctx}/test/test3}">test3</a></li>
 </ul>
-<div id="wrapDiv" style="background-color: yellow; width: 400px;height: 400px;">
+<div id="wrapDiv" style="background-color: yellow; wid 400px;height: 400px;">
     初始化的时候这里是test
 </div>
 </body>

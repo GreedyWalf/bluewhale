@@ -1,54 +1,55 @@
+<#assign ctx=request.contextPath/>
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="commonHeader(title)">
+<html lang="en">
+<head fragment="commonHeader(title)">
     <meta charset="utf-8"/>
-    <title th:title="${title}" th:text="${title}"></title>
+    <title>首页</title>
 
-    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/font-awesome.min.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/ace.min.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/ace-rtl.min.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/ace-skins.min.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/jquery-ui-1.10.3.custom.min.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/jquery.gritter.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/select2.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/bootstrap-editable.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/colorbox.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/fullcalendar.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/layui/css/layui.css}"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/ace.min.css"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/ace-skins.min.css"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/jquery-ui-1.10.3.custom.min.css"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/jquery.gritter.css"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/select2.css"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/bootstrap-editable.css"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/colorbox.css"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/fullcalendar.css"/>
+    <link rel="stylesheet" href="${ctx}/assets/layui/css/layui.css"/>
 
-    <script th:src="@{/assets/js/jquery-2.0.3.min.js}"></script>
-    <script th:src="@{/assets/js/jquery.slimscroll.min.js}"></script>
-    <script th:src="@{/assets/js/jquery-ui-1.10.3.custom.min.js}"></script>
-    <script th:src="@{/assets/js/bootstrap.min.js}"></script>
-    <script th:src="@{/assets/js/respond.min.js}"></script>
-    <script th:src="@{/assets/js/typeahead-bs2.min.js}"></script>
-    <script th:src="@{/assets/js/ace-extra.min.js}"></script>
-    <script th:src="@{/assets/js/ace-elements.min.js}"></script>
-    <script th:src="@{/assets/js/ace.min.js}"></script>
-    <script th:src="@{/assets/js/jquery.colorbox-min.js}"></script>
-    <script th:src="@{/assets/js/jquery.ui.touch-punch.min.js}"></script>
-    <script th:src="@{/assets/js/fullcalendar.min.js}"></script>
-    <script th:src="@{/assets/js/bootbox.min.js}"></script>
-    <script th:src="@{/assets/js/jquery.gritter.min.js}"></script>
-    <script th:src="@{/assets/js/bootbox.min.js}"></script>
-    <script th:src="@{/assets/js/jquery.easy-pie-chart.min.js}"></script>
-    <script th:src="@{/assets/js/jquery.hotkeys.min.js}"></script>
-    <script th:src="@{/assets/js/bootstrap-wysiwyg.min.js}"></script>
-    <script th:src="@{/assets/js/select2.min.js}"></script>
-    <script th:src="@{/assets/js/date-time/bootstrap-datepicker.min.js}"></script>
-    <script th:src="@{/assets/js/fuelux/fuelux.spinner.min.js}"></script>
-    <script th:src="@{/assets/js/x-editable/bootstrap-editable.min.js}"></script>
-    <script th:src="@{/assets/js/x-editable/ace-editable.min.js}"></script>
-    <script th:src="@{/assets/js/jquery.maskedinput.min.js}"></script>
-    <script th:src="@{/assets/js/jquery.pjax.js}"></script>
-    <script th:src="@{/assets/layui/layui.js}"></script>
+    <script src="${ctx}/assets/js/jquery-2.0.3.min.js"></script>
+    <script src="${ctx}/assets/js/jquery.slimscroll.min.js"></script>
+    <script src="${ctx}/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="${ctx}/assets/js/bootstrap.min.js"></script>
+    <script src="${ctx}/assets/js/respond.min.js"></script>
+    <script src="${ctx}/assets/js/typeahead-bs2.min.js"></script>
+    <script src="${ctx}/assets/js/ace-extra.min.js"></script>
+    <script src="${ctx}/assets/js/ace-elements.min.js"></script>
+    <script src="${ctx}/assets/js/ace.min.js"></script>
+    <script src="${ctx}/assets/js/jquery.colorbox-min.js"></script>
+    <script src="${ctx}/assets/js/jquery.ui.touch-punch.min.js"></script>
+    <script src="${ctx}/assets/js/fullcalendar.min.js"></script>
+    <script src="${ctx}/assets/js/bootbox.min.js"></script>
+    <script src="${ctx}/assets/js/jquery.gritter.min.js"></script>
+    <script src="${ctx}/assets/js/bootbox.min.js"></script>
+    <script src="${ctx}/assets/js/jquery.easy-pie-chart.min.js"></script>
+    <script src="${ctx}/assets/js/jquery.hotkeys.min.js"></script>
+    <script src="${ctx}/assets/js/bootstrap-wysiwyg.min.js"></script>
+    <script src="${ctx}/assets/js/select2.min.js"></script>
+    <script src="${ctx}/assets/js/date-time/bootstrap-datepicker.min.js"></script>
+    <script src="${ctx}/assets/js/fuelux/fuelux.spinner.min.js"></script>
+    <script src="${ctx}/assets/js/x-editable/bootstrap-editable.min.js"></script>
+    <script src="${ctx}/assets/js/x-editable/ace-editable.min.js"></script>
+    <script src="${ctx}/assets/js/jquery.maskedinput.min.js"></script>
+    <script src="${ctx}/assets/js/jquery.pjax.js"></script>
+    <script src="${ctx}/assets/layui/layui.js"></script>
 </head>
 
 <body>
 
 <!-- 头部导航 -->
-<div class="navbar navbar-default" id="navbar" th:fragment="navigation">
+<div class="navbar navbar-default" id="navbar" fragment="navigation">
     <script type="text/javascript">
         try {
             ace.settings.check('navbar', 'fixed')
@@ -88,7 +89,7 @@
                                 </div>
 
                                 <div class="progress progress-mini ">
-                                    <div style="width:65%" class="progress-bar "></div>
+                                    <div style="wid65%" class="progress-bar "></div>
                                 </div>
                             </a>
                         </li>
@@ -101,7 +102,7 @@
                                 </div>
 
                                 <div class="progress progress-mini ">
-                                    <div style="width:35%" class="progress-bar progress-bar-danger"></div>
+                                    <div style="wid35%" class="progress-bar progress-bar-danger"></div>
                                 </div>
                             </a>
                         </li>
@@ -114,7 +115,7 @@
                                 </div>
 
                                 <div class="progress progress-mini ">
-                                    <div style="width:15%" class="progress-bar progress-bar-warning"></div>
+                                    <div style="wid15%" class="progress-bar progress-bar-warning"></div>
                                 </div>
                             </a>
                         </li>
@@ -127,7 +128,7 @@
                                 </div>
 
                                 <div class="progress progress-mini progress-striped active">
-                                    <div style="width:90%" class="progress-bar progress-bar-success"></div>
+                                    <div style="wid90%" class="progress-bar progress-bar-success"></div>
                                 </div>
                             </a>
                         </li>
@@ -219,7 +220,7 @@
 
                         <li>
                             <a href="#">
-                                <img th:src="@{/assets/avatars/avatar.png}" class="msg-photo" alt="Alex's Avatar"/>
+                                <img src="${ctx}/assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar"/>
                                 <span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Alex:</span>
@@ -236,7 +237,7 @@
 
                         <li>
                             <a href="#">
-                                <img th:src="@{/assets/avatars/avatar3.png}" class="msg-photo" alt="Susan's Avatar"/>
+                                <img src="${ctx}/assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar"/>
                                 <span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Susan:</span>
@@ -253,7 +254,7 @@
 
                         <li>
                             <a href="#">
-                                <img th:src="@{/assets/avatars/avatar4.png}" class="msg-photo" alt="Bob's Avatar"/>
+                                <img src="${ctx}/assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar"/>
                                 <span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Bob:</span>
@@ -269,7 +270,7 @@
                         </li>
 
                         <li>
-                            <a href="inbox.html">
+                            <a href="${ctx}/index">
                                 See all messages
                                 <i class="icon-arrow-right"></i>
                             </a>
@@ -279,10 +280,10 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" th:src="${user.userHeadImg}" th:alt="${user.userName}"/>
+                        <img class="nav-user-photo" src="${user.userHeadImg}" alt="${user.userName}"/>
                         <span class="user-info">
                                 <small>欢迎,</small>
-                                <span th:text="${user.userName}"></span>
+                                <span>${user.userName}</span>
                         </span>
 
                         <i class="icon-caret-down"></i>
@@ -297,7 +298,7 @@
                         </li>
 
                         <li>
-                            <a data-pjax th:href="@{/user/userInfo}">
+                            <a data-pjax href="${ctx}/user/userInfo">
                                 <i class="icon-user"></i>
                                 个人信息
                             </a>
@@ -306,7 +307,7 @@
                         <li class="divider"></li>
 
                         <li>
-                            <a th:href="@{/logOut}">
+                            <a href="${ctx}/logOut">
                                 <i class="icon-off"></i>
                                 退出
                             </a>
@@ -333,7 +334,7 @@
         </a>
 
         <!-- 左边菜单 -->
-        <div class="sidebar" id="sidebar" th:fragment="leftMenu">
+        <div class="sidebar" id="sidebar" fragment="leftMenu">
             <script type="text/javascript">
                 try {
                     ace.settings.check('sidebar', 'fixed')
@@ -371,47 +372,58 @@
                 </div>
             </div><!-- #sidebar-shortcuts -->
 
-            <ul class="nav nav-list" th:each="menu,status:${menuList}">
-                <!-- 有子菜单，存在二级目录 -->
-                <li th:if="${menu.childrenMenus}" th:menu-namePath="${menu.menuNamePath}">
-                    <a href="#" class="dropdown-toggle">
-                        <i class="icon-edit" th:if="${menu.menuName=='记账'}"></i>
-                        <i class="icon-desktop" th:if="${menu.menuName!='记账'}"></i>
-                        <span class="menu-text" th:text="${menu.menuName}">一级菜单</span>
-
-                        <b class="arrow icon-angle-down"></b>
-                    </a>
-                    <ul class="submenu">
-                        <li th:if="${menu.childrenMenus}" th:each="childMenu,status:${menu.childrenMenus}"
-                            th:menu-namePath="${childMenu.menuNamePath}">
-                            <a data-pjax th:href="@{${childMenu.url}}">
-                                <i class="icon-double-angle-right"></i>
-                                <span th:text="${childMenu.menuName}">二级菜单</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!-- 没有子菜单，只有一级目录 -->
-                <li th:if="not ${menu.childrenMenus}" th:menu-namePath="${menu.menuNamePath}">
-                    <a data-pjax th:href="@{${menu.url}}" th:if="${menu.menuName=='日历'}">
-                        <i class="icon-calendar"></i>
-                        <span class="menu-text">
-									<span th:text="${menu.menuName}">日历</span>
-                                <span class="badge badge-transparent tooltip-error"
-                                      title="2&nbsp;Important&nbsp;Events">
+            <ul class="nav nav-list">
+            <#list menuList as menu>
+                <#if menu.childrenMenus??>
+                    <!-- 有子菜单，存在二级目录 -->
+                    <li menu-namePath="${menu.menuNamePath}">
+                        <a href="#" class="dropdown-toggle">
+                            <#if menu.menuName=="记账">
+                                <i class="icon-edit"></i>
+                            <#else>
+                                <i class="icon-desktop"></i>
+                            </#if>
+                            <span class="menu-text">${menu.menuName}</span>
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <#list menu.childrenMenus as childMenu>
+                                <li menu-namePath="${childMenu.menuNamePath}">
+                                    <a data-pjax href="${ctx}/${childMenu.url}">
+                                        <i class="icon-double-angle-right"></i>
+                                        <span>${childMenu.menuName}</span>
+                                    </a>
+                                </li>
+                            </#list>
+                        </ul>
+                    </li>
+                <#else>
+                    <!-- 没有子菜单，只有一级目录 -->
+                    <li menu-namePath="${menu.menuNamePath}">
+                        <#if menu.menuName=="日历">
+                            <a data-pjax href="${ctx}/${menu.url}">
+                                <i class="icon-calendar"></i>
+                                <span class="menu-text">
+									${menu.menuName}
+                                        <span class="badge badge-transparent tooltip-error"
+                                              title="2&nbsp;Important&nbsp;Events">
                                     <i class="icon-warning-sign red bigger-130"></i>
                                 </span>
-                        </span>
-                    </a>
-                    <a data-pjax th:href="@{${menu.url}}" th:if="${menu.menuName=='相册'}">
-                        <i class="icon-picture"></i>
-                        <span class="menu-text" th:text="${menu.menuName}">相册</span>
-                    </a>
-                    <a data-pjax th:href="@{${menu.url}}" th:if="${menu.menuName!='相册' && menu.menuName!='日历'}">
-                        <i class="icon-tag"></i>
-                        <span class="menu-text" th:text="${menu.menuName}">其他的只有一级目录</span>
-                    </a>
-                </li>
+                            </a>
+                        <#elseif menu.menuName=="相册">
+                            <a data-pjax href="${ctx}/${menu.url}">
+                                <i class="icon-picture"></i>
+                                <span class="menu-text">${menu.menuName}</span>
+                            </a>
+                        <#else>
+                            <a data-pjax href="${ctx}/${menu.url}">
+                                <i class="icon-tag"></i>
+                                <span class="menu-text">${menu.menuName}</span>
+                            </a>
+                        </#if>
+                    </li>
+                </#if>
+            </#list>
             </ul><!-- /.nav-list -->
 
             <div class="sidebar-collapse" id="sidebar-collapse">
@@ -441,7 +453,7 @@
                 <ul class="breadcrumb">
                     <li class="home-bread">
                         <i class="icon-home home-icon"></i>
-                        <a th:href="@{/index}">首页</a>
+                        <a href="${ctx}/index}">首页</a>
                     </li>
                 </ul><!-- .breadcrumb -->
 
@@ -468,7 +480,7 @@
         </div><!-- /.main-content -->
 
         <!-- 设置区域 -->
-        <div class="ace-settings-container" id="ace-settings-container" th:fragment="settingBar">
+        <div class="ace-settings-container" id="ace-settings-container" fragment="settingBar">
             <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
                 <i class="icon-cog bigger-150"></i>
             </div>
@@ -524,19 +536,12 @@
 </body>
 
 
-<!-- js中使用thymeleaf取request域中的值 -->
-<script th:inline="javascript">
-    /*<![CDATA[*/
-    var isDispatcher =/*[[${isDispatcher}]]*/;
-    var contextPath = /*[[${contextPath}]]*/;
-    /*]]>*/
-</script>
-
 <script>
     $(function () {
-
+        var isDispatcher = "${isDispatcher!?string('true','false')}";
+        var contextPath = "${ctx}";
         //展示面包屑导航
-        function showBreadNav(menuNamePath){
+        function showBreadNav(menuNamePath) {
             var $homeBreadLi = $("li.home-bread");
             var $breadUl = $("ul.breadcrumb");
             $breadUl.html("");

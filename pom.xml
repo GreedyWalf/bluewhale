@@ -44,10 +44,16 @@
 			<!--<artifactId>spring-boot-starter-log4j</artifactId>-->
 		<!--</dependency>-->
 
-		<!-- 模板引擎 -->
+		<!-- springBoot支持thymeleaf模版 -->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+		<!--</dependency>-->
+
+		<!-- springBoot支持freemarker模版 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
 
 		<!-- springboot支持数据库连接 -->

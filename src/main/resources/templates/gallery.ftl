@@ -1,12 +1,11 @@
+<#assign ctx=request.contextPath/>
 <div class="row">
     <div class="col-xs-12">
-        <!-- PAGE CONTENT BEGINS -->
-
         <div class="row-fluid">
             <ul class="ace-thumbnails">
                 <li>
-                    <a th:href="@{/assets/images/gallery/image-1.jpg}" title="Photo Title" data-rel="colorbox">
-                        <img alt="150x150" src="assets/images/gallery/thumb-1.jpg" />
+                    <a href="${ctx}/assets/images/gallery/image-1.jpg" title="Photo Title" data-rel="colorbox">
+                        <img alt="150x150" src="${ctx}/assets/images/gallery/thumb-1.jpg"/>
                         <div class="tags">
                                 <span class="label-holder">
                                     <span class="label label-info">breakfast</span>
@@ -46,8 +45,8 @@
                 </li>
 
                 <li>
-                    <a href="assets/images/gallery/image-2.jpg" data-rel="colorbox">
-                        <img alt="150x150" src="assets/images/gallery/thumb-2.jpg" />
+                    <a href="${ctx}/assets/images/gallery/image-2.jpg" data-rel="colorbox">
+                        <img alt="150x150" src="${ctx}/assets/images/gallery/thumb-2.jpg"/>
                         <div class="text">
                             <div class="inner">Sample Caption on Hover</div>
                         </div>
@@ -55,8 +54,8 @@
                 </li>
 
                 <li>
-                    <a href="assets/images/gallery/image-3.jpg" data-rel="colorbox">
-                        <img alt="150x150" src="assets/images/gallery/thumb-3.jpg" />
+                    <a href="${ctx}/assets/images/gallery/image-3.jpg" data-rel="colorbox">
+                        <img alt="150x150" src="${ctx}/assets/images/gallery/thumb-3.jpg"/>
                         <div class="text">
                             <div class="inner">Sample Caption on Hover</div>
                         </div>
@@ -82,8 +81,8 @@
                 </li>
 
                 <li>
-                    <a href="assets/images/gallery/image-4.jpg" data-rel="colorbox">
-                        <img alt="150x150" src="assets/images/gallery/thumb-4.jpg" />
+                    <a href="${ctx}/assets/images/gallery/image-4.jpg" data-rel="colorbox">
+                        <img alt="150x150" src="${ctx}/assets/images/gallery/thumb-4.jpg"/>
                         <div class="tags">
                                 <span class="label-holder">
                                     <span class="label label-info arrowed">fountain</span>
@@ -116,13 +115,13 @@
 
                 <li>
                     <div>
-                        <img alt="150x150" src="assets/images/gallery/thumb-5.jpg" />
+                        <img alt="150x150" src="${ctx}/assets/images/gallery/thumb-5.jpg"/>
                         <div class="text">
                             <div class="inner">
                                 <span>Some Title!</span>
 
                                 <br/>
-                                <a href="assets/images/gallery/image-5.jpg" data-rel="colorbox">
+                                <a href="${ctx}/assets/images/gallery/image-5.jpg" data-rel="colorbox">
                                     <i class="icon-zoom-in"></i>
                                 </a>
 
@@ -139,8 +138,8 @@
                 </li>
 
                 <li>
-                    <a href="assets/images/gallery/image-6.jpg" data-rel="colorbox">
-                        <img alt="150x150" src="assets/images/gallery/thumb-6.jpg" />
+                    <a href="${ctx}/assets/images/gallery/image-6.jpg" data-rel="colorbox">
+                        <img alt="150x150" src="${ctx}/assets/images/gallery/thumb-6.jpg"/>
                     </a>
 
                     <div class="tools tools-right">
@@ -163,8 +162,8 @@
                 </li>
 
                 <li>
-                    <a href="assets/images/gallery/image-1.jpg" data-rel="colorbox">
-                        <img alt="150x150" src="assets/images/gallery/thumb-1.jpg" />
+                    <a href="${ctx}/assets/images/gallery/image-1.jpg" data-rel="colorbox">
+                        <img alt="150x150" src="${ctx}/assets/images/gallery/thumb-1.jpg"/>
                     </a>
 
                     <div class="tools">
@@ -187,8 +186,8 @@
                 </li>
 
                 <li>
-                    <a href="assets/images/gallery/image-2.jpg" data-rel="colorbox">
-                        <img alt="150x150" src="assets/images/gallery/thumb-2.jpg" />
+                    <a href="${ctx}/assets/images/gallery/image-2.jpg" data-rel="colorbox">
+                        <img alt="150x150" src="${ctx}/assets/images/gallery/thumb-2.jpg"/>
                     </a>
 
                     <div class="tools tools-top">
@@ -217,8 +216,7 @@
 </div>
 <!-- /.row -->
 
-
-<script type="text/javascript">
+<script>
     jQuery(function ($) {
         var colorbox_params = {
             reposition: true,
@@ -228,7 +226,7 @@
             next: '<i class="icon-arrow-right"></i>',
             close: '&times;',
             current: '{current} of {total}',
-            maxWidth: '100%',
+            maxWid: '100%',
             maxHeight: '100%',
             onOpen: function () {
                 document.body.style.overflow = 'hidden';

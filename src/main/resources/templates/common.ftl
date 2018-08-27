@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="commonHeader(title)">
+<head fragment="commonHeader(title)">
     <meta charset="utf-8"/>
-    <title th:title="${title}"></title>
+    <title title="${title}"></title>
 
-    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/font-awesome.min.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/ace.min.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/ace-rtl.min.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/ace-skins.min.css}"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/ace.min.css"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/ace-skins.min.css"/>
 
     <!-- 相册引入的css -->
-    <link rel="stylesheet" th:href="@{/assets/css/colorbox.css}"/>
+    <link rel="stylesheet" href="${ctx}/assets/css/colorbox.css"/>
 
-    <script th:src="@{/assets/js/jquery-2.0.3.min.js}"></script>
-    <script th:src="@{/assets/js/respond.min.js}"></script>
-    <script th:src="@{/assets/js/bootstrap.min.js}"></script>
-    <script th:src="@{/assets/js/typeahead-bs2.min.js}"></script>
-    <script th:src="@{/assets/js/bootstrap.min.js}"></script>
-    <script th:src="@{/assets/js/ace-elements.min.js}"></script>
-    <script th:src="@{/assets/js/ace.min.js}"></script>
-    <script th:src="@{/assets/js/ace-extra.min.js}"></script>
+    <script src="${ctx}/assets/js/jquery-2.0.3.min.js}"></script>
+    <script src="${ctx}/assets/js/respond.min.js}"></script>
+    <script src="${ctx}/assets/js/bootstrap.min.js}"></script>
+    <script src="${ctx}/assets/js/typeahead-bs2.min.js}"></script>
+    <script src="${ctx}/assets/js/bootstrap.min.js}"></script>
+    <script src="${ctx}/assets/js/ace-elements.min.js}"></script>
+    <script src="${ctx}/assets/js/ace.min.js}"></script>
+    <script src="${ctx}/assets/js/ace-extra.min.js}"></script>
 
     <!-- 相册引入js -->
-    <script th:src="@{/assets/js/jquery.colorbox-min.js}"></script>
+    <script src="${ctx}/assets/js/jquery.colorbox-min.js}"></script>
 
 </head>
 
@@ -37,7 +37,7 @@
     </script>
 
     <!-- 头部导航 -->
-    <div class="navbar-container" id="navbar-container" th:fragment="navigation">
+    <div class="navbar-container" id="navbar-container" fragment="navigation">
         <div class="navbar-header pull-left">
             <a href="#" class="navbar-brand">
                 <small>
@@ -69,7 +69,7 @@
                                 </div>
 
                                 <div class="progress progress-mini ">
-                                    <div style="width:65%" class="progress-bar "></div>
+                                    <div style="wid65%" class="progress-bar "></div>
                                 </div>
                             </a>
                         </li>
@@ -82,7 +82,7 @@
                                 </div>
 
                                 <div class="progress progress-mini ">
-                                    <div style="width:35%" class="progress-bar progress-bar-danger"></div>
+                                    <div style="wid35%" class="progress-bar progress-bar-danger"></div>
                                 </div>
                             </a>
                         </li>
@@ -95,7 +95,7 @@
                                 </div>
 
                                 <div class="progress progress-mini ">
-                                    <div style="width:15%" class="progress-bar progress-bar-warning"></div>
+                                    <div style="wid15%" class="progress-bar progress-bar-warning"></div>
                                 </div>
                             </a>
                         </li>
@@ -108,7 +108,7 @@
                                 </div>
 
                                 <div class="progress progress-mini progress-striped active">
-                                    <div style="width:90%" class="progress-bar progress-bar-success"></div>
+                                    <div style="wid90%" class="progress-bar progress-bar-success"></div>
                                 </div>
                             </a>
                         </li>
@@ -200,7 +200,7 @@
 
                         <li>
                             <a href="#">
-                                <img th:src="@{/assets/avatars/avatar.png}" class="msg-photo" alt="Alex's Avatar"/>
+                                <img src="${ctx}/assets/avatars/avatar.png}" class="msg-photo" alt="Alex's Avatar"/>
                                 <span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Alex:</span>
@@ -217,7 +217,7 @@
 
                         <li>
                             <a href="#">
-                                <img th:src="@{/assets/avatars/avatar3.png}" class="msg-photo" alt="Susan's Avatar"/>
+                                <img src="${ctx}/assets/avatars/avatar3.png}" class="msg-photo" alt="Susan's Avatar"/>
                                 <span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Susan:</span>
@@ -234,7 +234,7 @@
 
                         <li>
                             <a href="#">
-                                <img th:src="@{/assets/avatars/avatar4.png}" class="msg-photo" alt="Bob's Avatar"/>
+                                <img src="${ctx}/assets/avatars/avatar4.png}" class="msg-photo" alt="Bob's Avatar"/>
                                 <span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Bob:</span>
@@ -260,7 +260,7 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" th:src="@{/assets/avatars/user.jpg}" alt="Jason's Photo"/>
+                        <img class="nav-user-photo" src="${ctx}/assets/avatars/user.jpg}" alt="Jason's Photo"/>
                         <span class="user-info">
 									<small>Welcome,</small>
 									Jason
@@ -313,7 +313,7 @@
         </a>
 
         <!-- 左边菜单 -->
-        <div class="sidebar" id="sidebar" th:fragment="leftMenu">
+        <div class="sidebar" id="sidebar" fragment="leftMenu">
             <script type="text/javascript">
                 try {
                     ace.settings.check('sidebar', 'fixed')
@@ -353,7 +353,7 @@
 
             <ul class="nav nav-list">
                 <li class="active">
-                    <a href="index.html">
+                    <a href="index.ftl">
                         <i class="icon-dashboard"></i>
                         <span class="menu-text"> 控制台 </span>
                     </a>
@@ -527,7 +527,7 @@
                 </li>
 
                 <li>
-                    <a th:href="@{calendar}">
+                    <a href="${ctx}calendar}">
                         <i class="icon-calendar"></i>
                         <span class="menu-text">
 									日历
@@ -540,7 +540,7 @@
                 </li>
 
                 <li>
-                    <a th:href="@{gallery}">
+                    <a href="${ctx}gallery}">
                         <i class="icon-picture"></i>
                         <span class="menu-text"> 相册 </span>
                     </a>
@@ -591,7 +591,7 @@
                         </li>
 
                         <li>
-                            <a href="login.html">
+                            <a href="login.ftl">
                                 <i class="icon-double-angle-right"></i>
                                 登录 &amp; 注册
                             </a>
@@ -708,7 +708,7 @@
         </div><!-- /.main-content -->
 
         <!-- 设置区域 -->
-        <div class="ace-settings-container" id="ace-settings-container" th:fragment="settingBar">
+        <div class="ace-settings-container" id="ace-settings-container" fragment="settingBar">
             <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
                 <i class="icon-cog bigger-150"></i>
             </div>

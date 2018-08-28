@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qs.bluewhale.service.mapper.BillCategoryMapper">
+
+    <!--
+        定义实体属性和数据库字段之间映射对应关系
+        jdbcType属性：org.apache.ibatis.type.JdbcType类中定义的枚举，需要大写
+    -->
+    <resultMap id="BaseResultMap" type="com.qs.bluewhale.entity.BillCategory">
+        <id column="category_id" property="categoryId" jdbcType="VARCHAR"/>
+        <result column="parent_id" property="parentId" jdbcType="VARCHAR"/>
+        <result column="category_name" property="categoryName" jdbcType="VARCHAR"/>
+        <result column="create_by" property="createBy" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="DATE"/>
+        <result column="last_modify_by" property="lastModifyBy" jdbcType="VARCHAR"/>
+        <result column="last_modify_time" property="lastModifyTime" jdbcType="DATE"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        category_id, parent_id, category_name, create_by, create_time, last_modify_by, last_modify_time
+    </sql>
+
+
+    <insert id="insert">
+        INSERT INTO t_bw_bill_category(
+        <include refid="Base_Column_List"/>
+        )
+        VALUES(
+        #{categoryId}, #{parentId},#{categoryName},#{createBy}, #{createTime},#{lastModifyBy}, #{lastModifyTime}
+        )
+    </insert>
+
+    <update id="delete" parameterType="String">
+        DELETE FROM t_bw_bill_category
+        WHERE user_id = #{userId}
+    </update>
+
+
+    <!-- 使用mybatis的PageHelper进行分页 -->
+    <select id="findBillCategoryPage" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_bw_bill_category
+    </select>
+
+    <select id="findAllBillCategoryList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_bw_bill_category
+    </select>
+</mapper>

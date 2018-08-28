@@ -11,7 +11,10 @@
         <typeAlias alias="HashMap" type="java.util.HashMap"/>
         <typeAlias alias="LinkedHashMap" type="java.util.LinkedHashMap"/>
         <typeAlias alias="ArrayList" type="java.util.ArrayList"/>
+
         <typeAlias alias="User" type="com.qs.bluewhale.entity.User"/>
         <typeAlias alias="Menu" type="com.qs.bluewhale.entity.Menu"/>
+        <typeAlias alias="BillCategory" type="com.qs.bluewhale.entity.BillCategory"/>
+        <typeAlias alias="BillInfo" type="com.qs.bluewhale.entity.BillInfo"/>
     </typeAliases>
 </configuration>

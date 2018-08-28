@@ -1,13 +1,12 @@
 <#assign ctx=request.contextPath/>
 
-
 <div class="row">
     <div class="col-xs-12">
         <div class="row">
             <div class="col-xs-12">
                 <div>
                     <a href="#" class="btn btn-primary btn-sm" id="btnAdd">
-                        <i class="icon-ok"></i>新增
+                        <i class="icon-ok"></i>小记一笔
                     </a>
                     <a href="#" class="btn btn-warning btn-sm" id="btnEdit">
                         <i class="icon-edit"></i>编辑
@@ -16,50 +15,37 @@
                         <i class="icon-trash"></i>删除
                     </a>
                 </div>
-                <table id="userTb" lay-filter="userTb"></table>
+                <table id="billTb" lay-filter="billTb"></table>
             </div>
         </div>
     </div>
 </div>
+
 
 <script>
     layui.use(['form', 'layer', 'laypage', 'table'], function () {
         var form = layui.form;
         var layer = layui.layer;
         var table = layui.table;
-        var layPage = layui.laypage;
         var $ = layui.jquery;
 
         form.render();
 
-
         var table_data = [];
         //第一个实例
         table.render({
-            elem: '#userTb',
+            elem: '#billTb',
             height: 315,
-            url: '${ctx}/user/getUserList',
+            url: '${ctx}/bill/getBillList',
             page: true,
             cols: [[
                 {checkbox: true, fiexed: true, unresize: true},
-                {field: 'userName', title: '用户名'},
-                {field: 'password', title: '密码'},
-                {field: 'email', title: '邮箱'},
-                {field: 'phone', title: '手机'},
-                {field: 'position', title: '位置'},
                 {field: 'createBy', title: '创建人'},
                 {field: 'createTime', title: '创建时间'},
                 {field: 'lastModifyBy', title: '修改人'},
                 {field: 'lastModifyTime', title: '修改时间'}
             ]],
-            id: 'userTb',
-//            page: {
-//                layout: ['limit', 'count', 'prev', 'page', 'skip'],
-//                even: true,
-//                first: false,
-//                last: true,
-//                limit: 5
-//            },
+            id: 'billTb',
             limits: [5, 10],
             where: {
                 'keyword': ''
@@ -76,7 +62,7 @@
 
         //存储选中行的userId
         var selectUserIds = [];
-        table.on('checkbox(userTb)', function (obj) {
+        table.on('checkbox(billTb)', function (obj) {
             if (obj.checked === true) {
                 if (obj.type === 'one') {
                     selectUserIds.push(obj.data.userId);
@@ -102,33 +88,28 @@
         });
 
         //新增人员
-        $("#btnAdd").on('click',function(){
+        $("#btnAdd").on('click', function () {
             layer.open({
+                title: '小记一笔',
                 type: 2,
-                area: ['400px', '500px'],
-                content: '${ctx}/user/addUser',
-                btn: ['确定', '取消'],
-                yes: function (index, layero) {
-                    alert($("#name").val());
-                    alert(iframeIndex);
-                },
-                btn2: function (index, layero) {
-                    console.log(layero);
-                    alert(index);
-                }, cancel: function () {
-                    alert("取消了");
+                anim:1,
+                area: ['500px', '600px'],
+                content: '${ctx}/bill/addBill',
+                resize: false,
+                cancel: function () {
+                    console.log("-->取消了");
                 }
             });
         });
 
 
         //编辑人员
-        $("#btnEdit").on('click',function(){
+        $("#btnEdit").on('click', function () {
             alert('edit');
         });
 
         //删除人员
-        $("#btnDelete").on('click',function () {
+        $("#btnDelete").on('click', function () {
             alert('delete');
         });
 

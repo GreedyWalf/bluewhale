@@ -1,6 +1,5 @@
 <#assign ctx=request.contextPath/>
 
-
 <div class="row">
     <div class="col-xs-12">
         <div class="row">
@@ -16,7 +15,7 @@
                         <i class="icon-trash"></i>删除
                     </a>
                 </div>
-                <table id="userTb" lay-filter="userTb"></table>
+                <table id="billCategoryTb" lay-filter="billCategoryTb"></table>
             </div>
         </div>
     </div>
@@ -36,31 +35,19 @@
         var table_data = [];
         //第一个实例
         table.render({
-            elem: '#userTb',
+            elem: '#billCategoryTb',
             height: 315,
-            url: '${ctx}/user/getUserList',
+            url: '${ctx}/bill/getBillCategoryList',
             page: true,
             cols: [[
                 {checkbox: true, fiexed: true, unresize: true},
-                {field: 'userName', title: '用户名'},
-                {field: 'password', title: '密码'},
-                {field: 'email', title: '邮箱'},
-                {field: 'phone', title: '手机'},
-                {field: 'position', title: '位置'},
+                {field: 'categoryName', title: '账单类别'},
                 {field: 'createBy', title: '创建人'},
                 {field: 'createTime', title: '创建时间'},
                 {field: 'lastModifyBy', title: '修改人'},
                 {field: 'lastModifyTime', title: '修改时间'}
             ]],
-            id: 'userTb',
-//            page: {
-//                layout: ['limit', 'count', 'prev', 'page', 'skip'],
-//                even: true,
-//                first: false,
-//                last: true,
-//                limit: 5
-//            },
-            limits: [5, 10],
+            id: 'billCategoryTb',
             where: {
                 'keyword': ''
             },
@@ -75,33 +62,33 @@
 
 
         //存储选中行的userId
-        var selectUserIds = [];
-        table.on('checkbox(userTb)', function (obj) {
+        var selectBillCategories = [];
+        table.on('checkbox(billCategoryTb)', function (obj) {
             if (obj.checked === true) {
                 if (obj.type === 'one') {
-                    selectUserIds.push(obj.data.userId);
+                    selectBillCategories.push(obj.data.categoryId);
                 } else {
                     for (var i = 0; i < table_data.length; i++) {
-                        selectUserIds.push(table_data[i].userId);
+                        selectBillCategories.push(table_data[i].categoryId);
                     }
                 }
             } else {
                 if (obj.type === 'one') {
-                    for (var i = 0; i < selectUserIds.length; i++) {
-                        if (selectUserIds[i] === obj.data.userId) {
-                            selectUserIds.remove(i);
+                    for (var i = 0; i < selectBillCategories.length; i++) {
+                        if (selectBillCategories[i] === obj.data.categoryId) {
+                            selectBillCategories.remove(i);
                         }
                     }
                 } else {
-                    selectUserIds = [];
+                    selectBillCategories = [];
                 }
             }
 
             console.log("-->>");
-            console.log(selectUserIds);
+            console.log(selectBillCategories);
         });
 
-        //新增人员
+        //新增
         $("#btnAdd").on('click',function(){
             layer.open({
                 type: 2,
@@ -122,12 +109,12 @@
         });
 
 
-        //编辑人员
+        //编辑
         $("#btnEdit").on('click',function(){
             alert('edit');
         });
 
-        //删除人员
+        //删除
         $("#btnDelete").on('click',function () {
             alert('delete');
         });

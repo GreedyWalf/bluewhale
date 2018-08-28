@@ -77,4 +77,9 @@ public class UserController extends BaseController {
         userService.updateUser(user);
         return jsonResult;
     }
+
+    @RequestMapping(value = "/addUser")
+    public String addUser(){
+        return "user/addUser";
+    }
 }

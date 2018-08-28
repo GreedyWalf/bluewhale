@@ -26,17 +26,31 @@ public class BillInfo implements Serializable {
     private String categoryId;
 
     //账单金额
+    @Column(name = "money")
     private BigDecimal money;
 
-    //记账时间
+    //记账时间(时间点)
     @Column(name = "record_date")
     private Date recordDate;
 
-    //账单类型（支出、收入）
+    //记账时间段（开始时间）
+    @Column(name = "record_start_date")
+    private Date recordStartDate;
+
+    //记账时间段（结束时间）
+    @Column(name = "record_end_date")
+    private Date recordEndDate;
+
+    //账单类型（收入 0、支出 1）
     @Column(name = "bill_type")
     private String billType;
 
-    //账单状态
+    //是否报销（0 否 1 是）
+    @Column(name = "is_reimburse")
+    private String isReimburse;
+
+    //账单状态（UNFINISH 未完结，FINISHED 已完结）
+    @Column(name = "status")
     private String status;
 
     //创建人
@@ -55,6 +69,22 @@ public class BillInfo implements Serializable {
     @Column(name = "last_modify_time")
     private Date lastModifyTime;
 
+
+    public Date getRecordStartDate() {
+        return recordStartDate;
+    }
+
+    public void setRecordStartDate(Date recordStartDate) {
+        this.recordStartDate = recordStartDate;
+    }
+
+    public Date getRecordEndDate() {
+        return recordEndDate;
+    }
+
+    public void setRecordEndDate(Date recordEndDate) {
+        this.recordEndDate = recordEndDate;
+    }
 
     public String getBillId() {
         return billId;

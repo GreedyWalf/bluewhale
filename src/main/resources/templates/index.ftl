@@ -1,599 +1,232 @@
 <#assign ctx=request.contextPath/>
 <!DOCTYPE html>
 <html lang="en">
-<head fragment="commonHeader(title)">
-    <meta charset="utf-8"/>
-    <title>首页</title>
-
-    <link rel="stylesheet" href="${ctx}/assets/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="${ctx}/assets/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="${ctx}/assets/css/ace.min.css"/>
-    <link rel="stylesheet" href="${ctx}/assets/css/ace-rtl.min.css"/>
-    <link rel="stylesheet" href="${ctx}/assets/css/ace-skins.min.css"/>
-    <link rel="stylesheet" href="${ctx}/assets/css/jquery-ui-1.10.3.custom.min.css"/>
-    <link rel="stylesheet" href="${ctx}/assets/css/jquery.gritter.css"/>
-    <link rel="stylesheet" href="${ctx}/assets/css/select2.css"/>
-    <link rel="stylesheet" href="${ctx}/assets/css/bootstrap-editable.css"/>
-    <link rel="stylesheet" href="${ctx}/assets/css/colorbox.css"/>
-    <link rel="stylesheet" href="${ctx}/assets/css/fullcalendar.css"/>
-    <link rel="stylesheet" href="${ctx}/assets/layui/css/layui.css"/>
-
-    <script src="${ctx}/assets/js/jquery-2.0.3.min.js"></script>
-    <script src="${ctx}/assets/js/jquery.slimscroll.min.js"></script>
-    <script src="${ctx}/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
-    <script src="${ctx}/assets/js/bootstrap.min.js"></script>
-    <script src="${ctx}/assets/js/respond.min.js"></script>
-    <script src="${ctx}/assets/js/typeahead-bs2.min.js"></script>
-    <script src="${ctx}/assets/js/ace-extra.min.js"></script>
-    <script src="${ctx}/assets/js/ace-elements.min.js"></script>
-    <script src="${ctx}/assets/js/ace.min.js"></script>
-    <script src="${ctx}/assets/js/jquery.colorbox-min.js"></script>
-    <script src="${ctx}/assets/js/jquery.ui.touch-punch.min.js"></script>
-    <script src="${ctx}/assets/js/fullcalendar.min.js"></script>
-    <script src="${ctx}/assets/js/bootbox.min.js"></script>
-    <script src="${ctx}/assets/js/jquery.gritter.min.js"></script>
-    <script src="${ctx}/assets/js/bootbox.min.js"></script>
-    <script src="${ctx}/assets/js/jquery.easy-pie-chart.min.js"></script>
-    <script src="${ctx}/assets/js/jquery.hotkeys.min.js"></script>
-    <script src="${ctx}/assets/js/bootstrap-wysiwyg.min.js"></script>
-    <script src="${ctx}/assets/js/select2.min.js"></script>
-    <script src="${ctx}/assets/js/date-time/bootstrap-datepicker.min.js"></script>
-    <script src="${ctx}/assets/js/fuelux/fuelux.spinner.min.js"></script>
-    <script src="${ctx}/assets/js/x-editable/bootstrap-editable.min.js"></script>
-    <script src="${ctx}/assets/js/x-editable/ace-editable.min.js"></script>
-    <script src="${ctx}/assets/js/jquery.maskedinput.min.js"></script>
-    <script src="${ctx}/assets/js/jquery.pjax.js"></script>
-    <script src="${ctx}/assets/layui/layui.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="${ctx}/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="${ctx}/css/main.css">
+    <!--加载meta IE兼容文件-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 </head>
-
 <body>
-
-<!-- 头部导航 -->
-<div class="navbar navbar-default" id="navbar" fragment="navigation">
-    <script type="text/javascript">
-        try {
-            ace.settings.check('navbar', 'fixed')
-        } catch (e) {
-        }
-    </script>
-
-    <div class="navbar-container" id="navbar-container">
-        <div class="navbar-header pull-left">
-            <a href="#" class="navbar-brand">
-                <small>
-                    <i>🐳</i>
-                    Blue Whale
-                </small>
-            </a><!-- /.brand -->
-        </div><!-- /.navbar-header -->
-
-        <div class="navbar-header pull-right" role="navigation">
-            <ul class="nav ace-nav">
-                <li class="grey">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="icon-tasks"></i>
-                        <span class="badge badge-grey">4</span>
-                    </a>
-
-                    <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-                        <li class="dropdown-header">
-                            <i class="icon-ok"></i>
-                            4 Tasks to complete
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <div class="clearfix">
-                                    <span class="pull-left">Software Update</span>
-                                    <span class="pull-right">65%</span>
-                                </div>
-
-                                <div class="progress progress-mini ">
-                                    <div style="wid65%" class="progress-bar "></div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <div class="clearfix">
-                                    <span class="pull-left">Hardware Upgrade</span>
-                                    <span class="pull-right">35%</span>
-                                </div>
-
-                                <div class="progress progress-mini ">
-                                    <div style="wid35%" class="progress-bar progress-bar-danger"></div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <div class="clearfix">
-                                    <span class="pull-left">Unit Testing</span>
-                                    <span class="pull-right">15%</span>
-                                </div>
-
-                                <div class="progress progress-mini ">
-                                    <div style="wid15%" class="progress-bar progress-bar-warning"></div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <div class="clearfix">
-                                    <span class="pull-left">Bug Fixes</span>
-                                    <span class="pull-right">90%</span>
-                                </div>
-
-                                <div class="progress progress-mini progress-striped active">
-                                    <div style="wid90%" class="progress-bar progress-bar-success"></div>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                See tasks with details
-                                <i class="icon-arrow-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="purple">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="icon-bell-alt icon-animated-bell"></i>
-                        <span class="badge badge-important">8</span>
-                    </a>
-
-                    <ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
-                        <li class="dropdown-header">
-                            <i class="icon-warning-sign"></i>
-                            8 Notifications
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <div class="clearfix">
-											<span class="pull-left">
-												<i class="btn btn-xs no-hover btn-pink icon-comment"></i>
-												New Comments
-											</span>
-                                    <span class="pull-right badge badge-info">+12</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <i class="btn btn-xs btn-primary icon-user"></i>
-                                Bob just signed up as an editor ...
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <div class="clearfix">
-											<span class="pull-left">
-												<i class="btn btn-xs no-hover btn-success icon-shopping-cart"></i>
-												New Orders
-											</span>
-                                    <span class="pull-right badge badge-success">+8</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <div class="clearfix">
-											<span class="pull-left">
-												<i class="btn btn-xs no-hover btn-info icon-twitter"></i>
-												Followers
-											</span>
-                                    <span class="pull-right badge badge-info">+11</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                See all notifications
-                                <i class="icon-arrow-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="green">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="icon-envelope icon-animated-vertical"></i>
-                        <span class="badge badge-success">5</span>
-                    </a>
-
-                    <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-                        <li class="dropdown-header">
-                            <i class="icon-envelope-alt"></i>
-                            5 Messages
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <img src="${ctx}/assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar"/>
-                                <span class="msg-body">
-											<span class="msg-title">
-												<span class="blue">Alex:</span>
-												Ciao sociis natoque penatibus et auctor ...
-											</span>
-
-											<span class="msg-time">
-												<i class="icon-time"></i>
-												<span>a moment ago</span>
-											</span>
-										</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <img src="${ctx}/assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar"/>
-                                <span class="msg-body">
-											<span class="msg-title">
-												<span class="blue">Susan:</span>
-												Vestibulum id ligula porta felis euismod ...
-											</span>
-
-											<span class="msg-time">
-												<i class="icon-time"></i>
-												<span>20 minutes ago</span>
-											</span>
-										</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <img src="${ctx}/assets/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar"/>
-                                <span class="msg-body">
-											<span class="msg-title">
-												<span class="blue">Bob:</span>
-												Nullam quis risus eget urna mollis ornare ...
-											</span>
-
-											<span class="msg-time">
-												<i class="icon-time"></i>
-												<span>3:15 pm</span>
-											</span>
-										</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="${ctx}/index">
-                                See all messages
-                                <i class="icon-arrow-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="light-blue">
-                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="${user.userHeadImg}" alt="${user.userName}"/>
-                        <span class="user-info">
-                                <small>欢迎,</small>
-                                <span>${user.userName}</span>
-                        </span>
-
-                        <i class="icon-caret-down"></i>
-                    </a>
-
-                    <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                        <li>
-                            <a href="#">
-                                <i class="icon-cog"></i>
-                                设置
-                            </a>
-                        </li>
-
-                        <li>
-                            <a data-pjax href="${ctx}/user/userInfo">
-                                <i class="icon-user"></i>
-                                个人信息
-                            </a>
-                        </li>
-
-                        <li class="divider"></li>
-
-                        <li>
-                            <a href="${ctx}/logOut">
-                                <i class="icon-off"></i>
-                                退出
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul><!-- /.ace-nav -->
-        </div><!-- /.navbar-header -->
-    </div><!-- /.container -->
+<div class="header">
+    <div class="menu-btn">
+        <div class="menu"></div>
+    </div>
+    <h1 class="logo">
+        <a href="index">
+            <span>MYBLOG</span>
+            <img src="${ctx}/img/logo.png">
+        </a>
+    </h1>
+    <div class="nav">
+        <a href="${ctx}/index">文章</a>
+        <a href="${ctx}/whisper">微语</a>
+        <a href="${ctx}/leacots">留言</a>
+        <a href="${ctx}/album">相册</a>
+        <a href="${ctx}/about" class="active">关于</a>
+    </div>
+    <ul class="layui-nav header-down-nav">
+        <li class="layui-nav-item"><a href="${ctx}/index">文章</a></li>
+        <li class="layui-nav-item"><a href="${ctx}/whisper">微语</a></li>
+        <li class="layui-nav-item"><a href="${ctx}/leacots">留言</a></li>
+        <li class="layui-nav-item"><a href="${ctx}/album">相册</a></li>
+        <li class="layui-nav-item"><a href="${ctx}/about" class="active">关于</a></li>
+    </ul>
+    <p class="welcome-text">
+        欢迎来到<span class="name">小明</span>的博客~
+    </p>
 </div>
 
-
-<div class="main-container" id="main-container">
-    <script type="text/javascript">
-        try {
-            ace.settings.check('main-container', 'fixed')
-        } catch (e) {
-        }
-    </script>
-
-    <div class="main-container-inner">
-        <a class="menu-toggler" id="menu-toggler" href="#">
-            <span class="menu-text"></span>
-        </a>
-
-        <!-- 左边菜单 -->
-        <div class="sidebar" id="sidebar" fragment="leftMenu">
-            <script type="text/javascript">
-                try {
-                    ace.settings.check('sidebar', 'fixed')
-                } catch (e) {
-                }
-            </script>
-
-            <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-                <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                    <button class="btn btn-success">
-                        <i class="icon-signal"></i>
-                    </button>
-
-                    <button class="btn btn-info">
-                        <i class="icon-pencil"></i>
-                    </button>
-
-                    <button class="btn btn-warning">
-                        <i class="icon-group"></i>
-                    </button>
-
-                    <button class="btn btn-danger">
-                        <i class="icon-cogs"></i>
-                    </button>
-                </div>
-
-                <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-                    <span class="btn btn-success"></span>
-
-                    <span class="btn btn-info"></span>
-
-                    <span class="btn btn-warning"></span>
-
-                    <span class="btn btn-danger"></span>
-                </div>
-            </div><!-- #sidebar-shortcuts -->
-
-            <ul class="nav nav-list">
-            <#list menuList as menu>
-                <#if menu.childrenMenus??>
-                    <!-- 有子菜单，存在二级目录 -->
-                    <li menu-namePath="${menu.menuNamePath}">
-                        <a href="#" class="dropdown-toggle">
-                            <#if menu.menuName=="记账">
-                                <i class="icon-edit"></i>
-                            <#else>
-                                <i class="icon-desktop"></i>
-                            </#if>
-                            <span class="menu-text">${menu.menuName}</span>
-                            <b class="arrow icon-angle-down"></b>
-                        </a>
-                        <ul class="submenu">
-                            <#list menu.childrenMenus as childMenu>
-                                <li menu-namePath="${childMenu.menuNamePath}">
-                                    <a data-pjax href="${ctx}/${childMenu.url}">
-                                        <i class="icon-double-angle-right"></i>
-                                        <span>${childMenu.menuName}</span>
-                                    </a>
-                                </li>
-                            </#list>
-                        </ul>
-                    </li>
-                <#else>
-                    <!-- 没有子菜单，只有一级目录 -->
-                    <li menu-namePath="${menu.menuNamePath}">
-                        <#if menu.menuName=="日历">
-                            <a data-pjax href="${ctx}/${menu.url}">
-                                <i class="icon-calendar"></i>
-                                <span class="menu-text">
-									${menu.menuName}
-                                        <span class="badge badge-transparent tooltip-error"
-                                              title="2&nbsp;Important&nbsp;Events">
-                                    <i class="icon-warning-sign red bigger-130"></i>
-                                </span>
-                            </a>
-                        <#elseif menu.menuName=="相册">
-                            <a data-pjax href="${ctx}/${menu.url}">
-                                <i class="icon-picture"></i>
-                                <span class="menu-text">${menu.menuName}</span>
-                            </a>
-                        <#else>
-                            <a data-pjax href="${ctx}/${menu.url}">
-                                <i class="icon-tag"></i>
-                                <span class="menu-text">${menu.menuName}</span>
-                            </a>
-                        </#if>
-                    </li>
-                </#if>
-            </#list>
-            </ul><!-- /.nav-list -->
-
-            <div class="sidebar-collapse" id="sidebar-collapse">
-                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left"
-                   data-icon2="icon-double-angle-right"></i>
-            </div>
-
-            <script type="text/javascript">
-                try {
-                    ace.settings.check('sidebar', 'collapsed')
-                } catch (e) {
-                }
-            </script>
+<div class="banner">
+    <div class="layui-carousel" id="myCarousel">
+        <div carousel-item>
+            <div>条目1</div>
+            <div>条目2</div>
+            <div>条目3</div>
+            <div>条目4</div>
+            <div>条目5</div>
         </div>
+    </div>
+</div>
 
-        <!-- 正文内容区域 -->
-        <div class="main-content">
-            <!-- 面包屑导航 -->
-            <div class="breadcrumbs" id="breadcrumbs">
-                <script type="text/javascript">
-                    try {
-                        ace.settings.check('breadcrumbs', 'fixed')
-                    } catch (e) {
-                    }
-                </script>
+<#--<div class="banner">-->
+<#--<div class="cont w1000">-->
+<#--<div class="title">-->
+<#--<h3>MY<br/>BLOG</h3>-->
+<#--<h4>well-balanced heart</h4>-->
+<#--</div>-->
+<#--<div class="amount">-->
+<#--<p><span class="text">访问量</span><span class="access">1000</span></p>-->
+<#--<p><span class="text">日志</span><span class="daily-record">1000</span></p>-->
+<#--</div>-->
+<#--</div>-->
+<#--</div>-->
 
-                <ul class="breadcrumb">
-                    <li class="home-bread">
-                        <i class="icon-home home-icon"></i>
-                        <a href="${ctx}/index}">首页</a>
-                    </li>
-                </ul><!-- .breadcrumb -->
-
-                <div class="nav-search" id="nav-search">
-                    <form class="form-search">
-                        <span class="input-icon">
-                            <input type="text" placeholder="Search ..." class="nav-search-input"
-                                   id="nav-search-input" autocomplete="off"/>
-                            <i class="icon-search nav-search-icon"></i>
-                        </span>
-                    </form>
-                </div><!-- #nav-search -->
-            </div>
-
-            <div class="page-content" id="wrapMainContent">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <!-- PAGE CONTENT BEGINS -->
-
-                        <!-- PAGE CONTENT ENDS -->
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.page-content -->
-        </div><!-- /.main-content -->
-
-        <!-- 设置区域 -->
-        <div class="ace-settings-container" id="ace-settings-container" fragment="settingBar">
-            <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
-                <i class="icon-cog bigger-150"></i>
-            </div>
-
-            <div class="ace-settings-box" id="ace-settings-box">
-                <div>
-                    <div class="pull-left">
-                        <select id="skin-colorpicker" class="hide">
-                            <option data-skin="default" value="#438EB9">#438EB9</option>
-                            <option data-skin="skin-1" value="#222A2D">#222A2D</option>
-                            <option data-skin="skin-2" value="#C6487E">#C6487E</option>
-                            <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-                        </select>
+<div class="content">
+    <div class="cont w1000">
+        <div class="title">
+        <span class="layui-breadcrumb" lay-separator="|">
+          <a href="javascript:;" class="active">设计文章</a>
+          <a href="javascript:;">前端文章</a>
+          <a href="javascript:;">旅游杂记</a>
+        </span>
+        </div>
+        <div class="list-item">
+            <div class="item">
+                <div class="layui-fluid">
+                    <div class="layui-row">
+                        <div class="layui-col-xs12 layui-col-sm4 layui-col-md5">
+                            <div class="img"><img src="${ctx}/img/sy_img1.jpg" alt=""></div>
+                        </div>
+                        <div class="layui-col-xs12 layui-col-sm8 layui-col-md7">
+                            <div class="item-cont">
+                                <h3>空间立体效果图，完美呈现最终效果
+                                    <button class="layui-btn layui-btn-danger new-icon">new</button>
+                                </h3>
+                                <h5>设计文章</h5>
+                                <p>
+                                    室内设计作为一门新兴的学科，尽管还只是近数十年的事，但是人们有意识地对自己生活、生产活动的室内进行安排布置，甚至美化装饰，赋予室内环境以所祈使的气氛，却早巳从人类文明伊始的时期就已存在</p>
+                                <a href="details.html" class="go-icon"></a>
+                            </div>
+                        </div>
                     </div>
-                    <span>&nbsp; 选择皮肤</span>
-                </div>
-
-                <div>
-                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
-                    <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
-                </div>
-
-                <div>
-                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
-                    <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
-                </div>
-
-                <div>
-                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
-                    <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
-                </div>
-
-                <div>
-                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
-                    <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
-                </div>
-
-                <div>
-                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container"/>
-                    <label class="lbl" for="ace-settings-add-container">
-                        Inside
-                        <b>.container</b>
-                    </label>
                 </div>
             </div>
-        </div><!-- /#ace-settings-container -->
-    </div><!-- /.main-container-inner -->
+            <div class="item">
+                <div class="layui-fluid">
+                    <div class="layui-row">
+                        <div class="layui-col-xs12 layui-col-sm4 layui-col-md5">
+                            <div class="img"><img src="${ctx}/img/sy_img2.jpg" alt=""></div>
+                        </div>
+                        <div class="layui-col-xs12 layui-col-sm8 layui-col-md7">
+                            <div class="item-cont">
+                                <h3>空间立体效果图，完美呈现最终效果
+                                    <button class="layui-btn layui-btn-danger new-icon">new</button>
+                                </h3>
+                                <h5>设计文章</h5>
+                                <p>
+                                    室内设计作为一门新兴的学科，尽管还只是近数十年的事，但是人们有意识地对自己生活、生产活动的室内进行安排布置，甚至美化装饰，赋予室内环境以所祈使的气氛，却早巳从人类文明伊始的时期就已存在</p>
+                                <a href="details.html" class="go-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="layui-fluid">
+                    <div class="layui-row">
+                        <div class="layui-col-xs12 layui-col-sm4 layui-col-md5">
+                            <div class="img"><img src="${ctx}/img/sy_img3.jpg" alt=""></div>
+                        </div>
+                        <div class="layui-col-xs12 layui-col-sm8 layui-col-md7">
+                            <div class="item-cont">
+                                <h3>空间立体效果图，完美呈现最终效果
+                                    <button class="layui-btn layui-btn-danger new-icon">new</button>
+                                </h3>
+                                <h5>设计文章</h5>
+                                <p>
+                                    室内设计作为一门新兴的学科，尽管还只是近数十年的事，但是人们有意识地对自己生活、生产活动的室内进行安排布置，甚至美化装饰，赋予室内环境以所祈使的气氛，却早巳从人类文明伊始的时期就已存在</p>
+                                <a href="details.html" class="go-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="layui-fluid">
+                    <div class="layui-row">
+                        <div class="layui-col-xs12 layui-col-sm4 layui-col-md5">
+                            <div class="img"><img src="${ctx}/img/sy_img4.jpg" alt=""></div>
+                        </div>
+                        <div class="layui-col-xs12 layui-col-sm8 layui-col-md7">
+                            <div class="item-cont">
+                                <h3>空间立体效果图，完美呈现最终效果
+                                    <button class="layui-btn layui-btn-danger new-icon">new</button>
+                                </h3>
+                                <h5>设计文章</h5>
+                                <p>
+                                    室内设计作为一门新兴的学科，尽管还只是近数十年的事，但是人们有意识地对自己生活、生产活动的室内进行安排布置，甚至美化装饰，赋予室内环境以所祈使的气氛，却早巳从人类文明伊始的时期就已存在</p>
+                                <a href="details.html" class="go-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="layui-fluid">
+                    <div class="layui-row">
+                        <div class="layui-col-xs12 layui-col-sm4 layui-col-md5">
+                            <div class="img"><img src="${ctx}/img/sy_img5.jpg" alt=""></div>
+                        </div>
+                        <div class="layui-col-xs12 layui-col-sm8 layui-col-md7">
+                            <div class="item-cont">
+                                <h3>空间立体效果图，完美呈现最终效果
+                                    <button class="layui-btn layui-btn-danger new-icon">new</button>
+                                </h3>
+                                <h5>设计文章</h5>
+                                <p>
+                                    室内设计作为一门新兴的学科，尽管还只是近数十年的事，但是人们有意识地对自己生活、生产活动的室内进行安排布置，甚至美化装饰，赋予室内环境以所祈使的气氛，却早巳从人类文明伊始的时期就已存在</p>
+                                <a href="details.html" class="go-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="demo" style="text-align: center;"></div>
+    </div>
+</div>
 
-    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-        <i class="icon-double-angle-up icon-only bigger-110"></i>
-    </a>
-</div><!-- /.main-container -->
-</body>
+<div class="footer-wrap">
+    <div class="footer w1000">
+        <div class="qrcode">
+            <img src="${ctx}/img/erweima.jpg">
+        </div>
+        <div class="practice-mode">
+            <img src="${ctx}/img/down_img.jpg">
+            <div class="text">
+                <h4 class="title">我的联系方式</h4>
+                <p>微信<span class="WeChat">1234567890</span></p>
+                <p>手机<span class="iphone">1234567890</span></p>
+                <p>邮箱<span class="email">1234567890@qq.com</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="${ctx}/layui/layui.js"></script>
+<script type="text/javascript">
+    layui.config({
+        base: '${ctx}/js/util/'
+    }).use(['element', 'laypage', 'jquery', 'menu', 'carousel'], function () {
+        var element = layui.element;
+        var laypage = layui.laypage;
+        var $ = layui.$;
+        var menu = layui.menu;
+        var carousel = layui.carousel;
 
-
-<script>
-    $(function () {
-        var isDispatcher = "${isDispatcher!?string('true','false')}";
-        var contextPath = "${ctx}";
-        //展示面包屑导航
-        function showBreadNav(menuNamePath) {
-            var $homeBreadLi = $("li.home-bread");
-            var $breadUl = $("ul.breadcrumb");
-            $breadUl.html("");
-            $breadUl.append($homeBreadLi);
-            if (menuNamePath) {
-                var menuNames = menuNamePath.split(".");
-                menuNames.forEach(function (val, index) {
-                    console.log(index + '->' + val);
-                    var $li = $("<li></li>");
-                    $li.text(val);
-                    if (index === menuNames.length - 1) {
-                        $li.addClass("active");
-                    }
-
-                    $breadUl.append($li);
-                });
-            }
-        }
-
-
-        //左边菜单点击事件
-        $('[data-pjax] a, a[data-pjax]').click(function () {
-            $("li").removeClass("active");
-            var $parentLi = $(this).parents("li").eq(0);
-            $parentLi.addClass("active");
-            var menuNamePath = $parentLi.attr("menu-namePath");
-            showBreadNav(menuNamePath);
+        laypage.render({
+            elem: 'demo',
+            count: 70 //数据总数，从服务端得到
         });
 
-        console.log("-->>isDispatcher=" + isDispatcher);
-        //定义哪些a标签使用pjax方式访问，将a链接中html放在元素wrapMainContent中
-        $(document).pjax('[data-pjax] a, a[data-pjax]', '#wrapMainContent', {'timeout': 1200});
-        //针对刷新后的链接，重新使用pjax方式嵌入到指定元素下
-        var url = window.location.href;
-        //如果是首页，则不再次使用pjax跳转
-        if (isDispatcher) {
-            $.pjax({
-                url: '',
-                container: "#wrapMainContent"
-            });
+        menu.init();
 
-            //获取到链接的uri，页面刷新后，选中对应的菜单
-            var uri = url.substring(url.lastIndexOf(contextPath), url.length);
-            var $li = $("a[href='" + uri + "']").parents("li").eq(0);
-            if ($li.parents("ul")) {
-                $li.parents("ul").show();
-            }
-
-            $li.addClass("active");
-            var menuNamePath = $li.attr("menu-namePath");
-            showBreadNav(menuNamePath);
-        }
-    });
+        //首页轮播图
+        carousel.render({
+            elem: '#myCarousel',
+            height: '600px',
+            width: '100%',
+            arrow: 'always'
+            //,anim: 'updown' //切换动画方式
+        });
+    })
 </script>
+</body>
 </html>

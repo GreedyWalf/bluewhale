@@ -14,6 +14,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body>
 <div class="header">
     <div class="menu-btn">
@@ -47,27 +48,15 @@
 <div class="banner">
     <div class="layui-carousel" id="myCarousel">
         <div carousel-item>
-            <div>条目1</div>
-            <div>条目2</div>
-            <div>条目3</div>
-            <div>条目4</div>
-            <div>条目5</div>
+            <div><img src="${ctx}/img/bannel/1.jpg" width="100%" height="600px"></div>
+            <div><img src="${ctx}/img/bannel/2.jpg" width="100%" height="600px"></div>
+            <div><img src="${ctx}/img/bannel/3.jpg" width="100%" height="600px"></div>
+            <div><img src="${ctx}/img/bannel/4.jpg" width="100%" height="600px"></div>
+            <div><img src="${ctx}/img/bannel/5.jpg" width="100%" height="600px"></div>
         </div>
     </div>
 </div>
 
-<#--<div class="banner">-->
-<#--<div class="cont w1000">-->
-<#--<div class="title">-->
-<#--<h3>MY<br/>BLOG</h3>-->
-<#--<h4>well-balanced heart</h4>-->
-<#--</div>-->
-<#--<div class="amount">-->
-<#--<p><span class="text">访问量</span><span class="access">1000</span></p>-->
-<#--<p><span class="text">日志</span><span class="daily-record">1000</span></p>-->
-<#--</div>-->
-<#--</div>-->
-<#--</div>-->
 
 <div class="content">
     <div class="cont w1000">
@@ -223,7 +212,8 @@
             elem: '#myCarousel',
             height: '600px',
             width: '100%',
-            arrow: 'always'
+            interval: 3000,
+            // arrow: 'always'
             //,anim: 'updown' //切换动画方式
         });
     })

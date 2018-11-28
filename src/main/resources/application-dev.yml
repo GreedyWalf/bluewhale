@@ -17,7 +17,7 @@ spring:
   #freemarker配置
   freemarker:
     #是否开启模板缓存，默认为true，开发会设置为false
-    cache: false
+    cache: true
     #把HttpServletRequest的属性存放到request这个变量里面，页面上可以通过request.contextPath获取应用上下文信息
     request-context-attribute: request
     settings:

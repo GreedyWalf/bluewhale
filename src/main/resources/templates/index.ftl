@@ -8,11 +8,15 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="${ctx}/layui/css/layui.css">
     <link rel="stylesheet" type="text/css" href="${ctx}/css/main.css">
+
     <!--加载meta IE兼容文件-->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+
+    <script src="${ctx}/js/pace.mini.js"></script>
+    <link rel="stylesheet" type="text/css" href="${ctx}/themes/blue/pace-theme-minimal.css">
 </head>
 
 <body>
@@ -48,11 +52,11 @@
 <div class="banner">
     <div class="layui-carousel" id="myCarousel">
         <div carousel-item>
-            <div><img src="${ctx}/img/bannel/1.jpg" width="100%" height="600px"></div>
-            <div><img src="${ctx}/img/bannel/2.jpg" width="100%" height="600px"></div>
-            <div><img src="${ctx}/img/bannel/3.jpg" width="100%" height="600px"></div>
-            <div><img src="${ctx}/img/bannel/4.jpg" width="100%" height="600px"></div>
-            <div><img src="${ctx}/img/bannel/5.jpg" width="100%" height="600px"></div>
+            <div><img src="${ctx}/img/bannel/bannel_1.jpg" width="100%" height="600px"></div>
+            <div><img src="${ctx}/img/bannel/bannel_2.jpg" width="100%" height="600px"></div>
+            <div><img src="${ctx}/img/bannel/bannel_3.jpg" width="100%" height="600px"></div>
+            <div><img src="${ctx}/img/bannel/bannel_4.jpg" width="100%" height="600px"></div>
+            <div><img src="${ctx}/img/bannel/bannel_5.jpg" width="100%" height="600px"></div>
         </div>
     </div>
 </div>

@@ -29,10 +29,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
-        </dependency>
 
         <!-- logback日志 -->
         <dependency>
@@ -61,7 +57,7 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- springBoot支持freemarker模版 -->
+        <!--springBoot支持freemarker模版-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
@@ -133,6 +129,7 @@
             <version>1.2.6.RELEASE</version>
         </dependency>
 
+        <!-- springBoot单元测试 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -141,6 +138,7 @@
     </dependencies>
 
     <profiles>
+        <!-- 使用maven打包时候，选择对应application.yml文件 -->
         <profile>
             <id>dev</id>
             <properties>
@@ -157,7 +155,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!--springboot 热加载 fork: 如果没有该项配置，肯定devtools不会起作用，即应用不会restart -->
                 <configuration>
                     <fork>true</fork>
                 </configuration>

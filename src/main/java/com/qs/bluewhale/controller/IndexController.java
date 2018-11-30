@@ -37,4 +37,10 @@ public class IndexController {
     public String whisper() {
         return "whisper";
     }
+
+
+    @GetMapping(value = "/test")
+    public String test() {
+        return "test";
+    }
 }
